@@ -23,7 +23,7 @@ const rightBtn1 = document.querySelector(".btn-1a");
 rightBtn1.addEventListener("click",
     function (event) {
         const content = document.querySelector(".product-slide-1");
-        content.scrollLeft += 1100;
+        content.scrollLeft += 1000;
         event.preventDefault();
 
     })
@@ -64,18 +64,21 @@ backtop.addEventListener("click", () => {
 
 const sidebar = document.querySelector(".sidebar");
 const cross = document.querySelector(".fa-xmark");
+const solid = document.querySelector(".fa-solid");
 const black = document.querySelector(".black");
 const sidebtn = document.querySelector(".second-1");
 
 sidebtn.addEventListener("click", () => {
     sidebar.classList.add("active");
     cross.classList.add("active");
+    solid.classList.add("active");
     black.classList.add("active");
     document.body.classList.add("stop-scroll");
 })
 cross.addEventListener("click", () => {
     sidebar.classList.remove("active");
     cross.classList.remove("active");
+    solid.classList.remove("active");
     black.classList.remove("active");
     document.body.classList.remove("stop-scroll");
 })

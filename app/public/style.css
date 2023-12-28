@@ -147,8 +147,8 @@ i {
 }
 
 .lang span {
-    font-size: 22px;
-    font-weight: 400;
+    font-size: px;
+    font-weight: 600;
 }
 
 .lang {
@@ -349,7 +349,7 @@ i {
 }
 
 .slide img {
-    width: 1380px;
+    width: 100vw;
     height: 100%;
 }
 
@@ -382,27 +382,27 @@ i {
     }
 
     24% {
-        left: -1380px;
+        left: -100vw;
     }
 
     50% {
-        left: -1380px;
+        left: -100vw;
     }
 
     54% {
-        left: calc(-1380*2px);
+        left: calc(-1380*2);
     }
 
     80% {
-        left: calc(-1380*2px);
+        left: calc(-100vw*2);
     }
 
     84% {
-        left: calc(-1380*3px);
+        left: calc(-100vw*3);
     }
 
     100% {
-        left: calc(-1380*3px);
+        left: calc(-100vw*3);
     }
 }
 
@@ -761,6 +761,10 @@ i {
     cursor: pointer;
 }
 
+.fa-solid {
+    display: none !important;
+}
+
 .fa-angle-right {
     color: rgb(27, 27, 27);
 }
@@ -797,6 +801,10 @@ i {
 
 .fa-xmark.active {
     display: block;
+}
+
+.fa-solid.active {
+    display: inline !important;
 }
 
 .hdn-sign.active {
