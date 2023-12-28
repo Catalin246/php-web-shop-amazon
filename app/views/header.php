@@ -67,7 +67,9 @@
         </div>
     </div>
 
-    <i class="fa-solid fa-xmark"></i>
+    <div class="xmark">
+        <i class="fa-solid fa-xmark"></i>
+    </div>
     <div class="triangle"><i class="fa-solid fa-triangle"></i></div>
     <div class="hdn-sign">
         <div class="hdn-table">

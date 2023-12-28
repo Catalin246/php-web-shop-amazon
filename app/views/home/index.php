@@ -12,65 +12,33 @@ include __DIR__ . '/../header.php';
                     here to go to amazon.in</a>
             </div>
             <div class="product-comp">
-                <div class="box">
-                    <h3>Gaming Accessories</h3>
-                    <div class="box-a">
-                        <div>
-                            <img src="images/ga1.jpg" alt="">
-                            <span>Headsets</span>
-                        </div>
-                        <div>
-                            <img src="images/ga2.jpg" alt="">
-                            <span>Keyboards</span>
-                        </div>
-                        <div>
-                            <img src="images/ga3.jpg" alt="">
-                            <span>Computer mice</span>
-                        </div>
-                        <div>
-                            <img src="images/ga4.jpg" alt="">
-                            <span>Chairs</span>
-                        </div>
+                <div class="box box-c">
+                    <h3>Shop Valentine's Day</h3>
+                    <div>
+                        <img src="images/shop valentine's.jpg" alt="">
                     </div>
                     <a href="#">See More</a>
-                </div>
-                <div class="box">
-                    <h3>Shop By Category</h3>
-                    <div class="box-a">
-                        <div>
-                            <img src="images/sc1.jpg" alt="">
-                            <span>Laptop</span>
-                        </div>
-                        <div>
-                            <img src="images/sc2.jpg" alt="">
-                            <span>Video Games</span>
-                        </div>
-                        <div>
-                            <img src="images/sc3.jpg" alt="">
-                            <span>Baby</span>
-                        </div>
-                        <div>
-                            <img src="images/sc4.jpg" alt="">
-                            <span>Toy & Games</span>
-                        </div>
-                    </div>
-                    <a href="#">Shop Now</a>
                 </div>
                 <div class="box box-c">
-                    <h3>Amazon Basics</h3>
+                    <h3>Electronics</h3>
                     <div>
-                        <img src="images/amazon basics.jpg" alt="">
+                        <img src="images/electronics.jpg" alt="">
                     </div>
                     <a href="#">See More</a>
                 </div>
-                <div class="box-b">
-                    <div class="best">
-                        <h3>Sign up for the Best Experience</h3>
-                        <button>Sign in securely</button>
-                    </div>
+                <div class="box box-c">
+                    <h3>Find your ideal TV</h3>
                     <div>
-                        <img src="images/banner.jpg" alt="">
+                        <img src="images/find your deal.jpg" alt="">
                     </div>
+                    <a href="#">See More</a>
+                </div>
+                <div class="box box-c">
+                    <h3>Easy Returns</h3>
+                    <div>
+                        <img src="images/easy return.jpg" alt="">
+                    </div>
+                    <a href="#">See More</a>
                 </div>
             </div>
             <div class="product-comp">
