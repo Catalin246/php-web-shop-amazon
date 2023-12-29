@@ -52,7 +52,7 @@
                         <div class="form-group divider">
                             <hr><small>Already have an account?</small>
                         </div>
-                        <p class="form-group"><a href="signin" class="btn sign-in-button btn-block">Sign in to your
+                        <p class="form-group"><a href="index" class="btn sign-in-button btn-block">Sign in to your
                                 account</a>
                         </p>
                         <p class="form-group">By creating an account you agree to our <a class="link"

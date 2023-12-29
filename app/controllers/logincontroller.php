@@ -2,9 +2,9 @@
 class LoginController
 {
 
-    public function signIn()
+    public function index()
     {
-        require __DIR__ . '/../views/login/sign-in.php';
+        require __DIR__ . '/../views/login/index.php';
     }
     public function register()
     {
