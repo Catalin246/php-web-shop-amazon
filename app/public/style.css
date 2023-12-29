@@ -864,8 +864,7 @@ i {
 
 .hdn-line {
     width: 0.5px;
-    color: black;
-    background-color: rgb(190, 190, 190);
+    background-color: rgb(234, 234, 234);
     height: 300px;
 }
 
@@ -903,9 +902,11 @@ i {
 }
 
 .sign-in-button {
-    background-color: #ff9900;
+    background-color: #febd69;
+    ;
     color: #111;
-    border: 1px solid #ff9900;
+    border: 1px solid #febd69;
+    ;
     padding: 4px 72px;
     border-radius: 4px;
     cursor: pointer;
