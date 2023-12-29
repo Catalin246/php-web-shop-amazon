@@ -1,8 +1,8 @@
 <div class="hdn-sign">
     <div class="sign-in-section">
-        <button class="sign-in-button">Sign In</button>
+        <a href="login/signin"><button class="sign-in-button">Sign In</button></a>
         <p class="start-here-paragraph">
-            New Customer?<a href="#" class="start-here-link"> Start here </a>
+            New Customer?<a href="login/register" class="start-here-link"> Start here </a>
         </p>
         <hr class="custom-hr">
     </div>
