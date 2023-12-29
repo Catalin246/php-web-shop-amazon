@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
     <title>Web Shop Amazon</title>
 </head>
 
@@ -79,7 +79,7 @@
     <header>
         <div class="first">
             <div class="flex logo">
-                <a href="#"><img src="images/logo.png" alt=""></a>
+                <a href="#"><img src="assets/images/logo.png" alt=""></a>
                 <div class="map flex">
                     <i class="fas fa-map-marker"></i>
                     <div>
@@ -98,7 +98,7 @@
             </div>
             <div class="flex right">
                 <div class="flex lang">
-                    <img src="images/usflag.jpg" alt="">
+                    <img src="assets/images/usflag.jpg" alt="">
                     <span>EN</span>
                     <i class="fas fa-caret-down"></i>
                 </div>
