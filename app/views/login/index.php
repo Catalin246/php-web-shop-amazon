@@ -24,7 +24,7 @@
         <div class="row">
             <div class="panel panel-primary">
                 <div class="panel-body">
-                    <form method="POST" action="#" role="form">
+                    <form method="POST" role="form">
                         <div class="form-group">
                             <h2>Sign in</h2>
                         </div>

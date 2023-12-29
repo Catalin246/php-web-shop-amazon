@@ -13,19 +13,9 @@ class UserController
 
     public function index()
     {
-        if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            $this->getAll();
-        }
-
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $this->create();
         }
-    }
-
-    public function getAll()
-    {
-        $users = $this->userService->getAll();
-        echo json_encode(['status' => 'success', 'users' => $users]);
     }
 
     public function create()
