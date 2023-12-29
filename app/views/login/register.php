@@ -19,7 +19,7 @@
 <body>
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <a href="/"><img class="small-logo" src="../images/amazon-logo.png" alt=""></a>
+            <a href="/"><img class="small-logo" src="../assets/images/amazon-logo.png" alt=""></a>
         </div>
 
         <div class="row">
@@ -66,7 +66,5 @@
         </div>
     </div>
 </body>
-
-<script src="js/user.js"></script>
 
 </html>

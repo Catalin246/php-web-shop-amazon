@@ -15,7 +15,7 @@ include __DIR__ . '/../components/header.php';
                 <div class="box box-c">
                     <h3>Shop Valentine's Day</h3>
                     <div>
-                        <img src="images/shop valentine's.jpg" alt="">
+                        <img src="assets/images/shop valentine's.jpg" alt="">
                     </div>
                     <a href="#">See More</a>
                 </div>
