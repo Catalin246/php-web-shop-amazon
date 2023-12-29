@@ -29,6 +29,7 @@ class UserController
             $user->setName($data['name'] ?? '');
             $user->setPhone($data['phone'] ?? null);
             $user->setUserRoleId($data['userRoleId'] ?? 0);
+            $user->setPassword($data['password']);
 
             $this->userService->create($user);
 

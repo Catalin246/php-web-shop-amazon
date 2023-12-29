@@ -1,9 +1,19 @@
 <div class="hdn-sign">
     <div class="sign-in-section">
-        <a href="login/index"><button class="sign-in-button">Sign In</button></a>
-        <p class="start-here-paragraph">
-            New Customer?<a href="login/register" class="start-here-link"> Start here </a>
-        </p>
+        <?php if (isset($_SESSION['user'])): ?>
+            <form method="POST" action="/login/logout">
+                <button type="submit" class="sign-in-button">Logout</button>
+            </form>
+            <p class="start-here-paragraph">
+                Thank you for shopping,
+                <?php echo $_SESSION['user']['name']; ?>!
+            </p>
+        <?php else: ?>
+            <a href="login/index"><button class="sign-in-button">Sign In</button></a>
+            <p class="start-here-paragraph">
+                New Customer?<a href="login/register" class="start-here-link"> Start here </a>
+            </p>
+        <?php endif; ?>
         <hr class="custom-hr">
     </div>
 

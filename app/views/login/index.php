@@ -24,18 +24,19 @@
         <div class="row">
             <div class="panel panel-primary">
                 <div class="panel-body">
-                    <form method="POST" role="form">
+                    <form method="POST" action="/login/signin" role="form">
                         <div class="form-group">
                             <h2>Sign in</h2>
                         </div>
                         <div class="form-group">
                             <strong>Email or mobile phone number</strong>
-                            <input id="signinEmail" type="email" maxlength="50" class="form-control">
+                            <input id="signinEmail" name="email" type="email" maxlength="50" class="form-control">
                         </div>
                         <div class="form-group">
                             <strong>Password</strong>
                             <span class="right"><a class="link" href="#">Forgot your password?</a></span>
-                            <input id="signinPassword" type="password" maxlength="25" class="form-control">
+                            <input id="signinPassword" name="password" type="password" maxlength="25"
+                                class="form-control">
                         </div>
                         <div class="form-group" style="padding-top: 12px;">
                             <button id="signinSubmit" type="submit" class="btn sign-in-button btn-block">Sign

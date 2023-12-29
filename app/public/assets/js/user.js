@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
             password: password,
             passwordConfirm: passwordConfirm,
             phone: "",
-            userRoleId: 1
+            userRoleId: 1,
         };
 
         console.log(formData);

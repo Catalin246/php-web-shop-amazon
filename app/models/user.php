@@ -8,6 +8,39 @@ class User
     private string $lastName;
     private string $phone;
     private int $userRoleId;
+    private string $password;
+
+    /**
+     * User constructor.
+     *
+     * @param array $userData
+     */
+    public function __construct(array $userData)
+    {
+        $this->setId($userData['id'] ?? 0);
+        $this->setEmail($userData['email'] ?? '');
+        $this->setName($userData['name'] ?? '');
+        $this->setPhone($userData['phone'] ?? '');
+        $this->setUserRoleId($userData['userRoleId'] ?? 0);
+        $this->setPassword($userData['password'] ?? '');
+    }
+
+    /**
+     * Get the user data as an array.
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'email' => $this->email,
+            'name' => $this->name,
+            'phone' => $this->phone,
+            'user_role_id' => $this->userRoleId,
+            'password' => $this->password,
+        ];
+    }
 
     /**
      * Get the value of id
@@ -125,6 +158,30 @@ class User
     public function setUserRoleId(int $userRoleId): self
     {
         $this->userRoleId = $userRoleId;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of password
+     *
+     * @return string
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set the value of password
+     *
+     * @param string $password
+     *
+     * @return self
+     */
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
 
         return $this;
     }

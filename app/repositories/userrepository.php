@@ -19,16 +19,32 @@ class UserRepository extends Repository
         }
     }
 
+    function getUserByEmail($email)
+    {
+        try {
+            $stmt = $this->connection->prepare("SELECT * FROM users WHERE email = ?");
+            $stmt->execute([$email]);
+
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            return $result ? $result : null;
+        } catch (PDOException $e) {
+            echo $e;
+            return null;
+        }
+    }
+
     function create($user)
     {
         try {
-            $stmt = $this->connection->prepare("INSERT INTO users (email, name, phone, user_role_id) VALUES (?, ?, ?, ?)");
+            $stmt = $this->connection->prepare("INSERT INTO users (email, name, phone, user_role_id, `password`) VALUES (?, ?, ?, ?, ?)");
 
             $stmt->execute([
                 $user->getEmail(),
                 $user->getName(),
                 $user->getPhone(),
-                $user->getUserRoleId()
+                $user->getUserRoleId(),
+                $user->getPassword()
             ]);
 
         } catch (PDOException $e) {

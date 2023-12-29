@@ -11,6 +11,13 @@ class UserService
         return $users;
     }
 
+    function getUserByEmail($email)
+    {
+        $repository = new UserRepository();
+        $user = $repository->getUserByEmail($email);
+        return $user;
+    }
+
     public function create($user)
     {
         $repository = new UserRepository();

@@ -16,7 +16,13 @@
 <body>
     <div class="sidebar">
         <div class="hdn-head">
-            <h2>Hello, Sign in</h2>
+            <?php
+            if (isset($_SESSION['user'])) {
+                echo '<h2>Hello, ' . $_SESSION['user']['name'] . '!</h2>';
+            } else {
+                echo '<h2>Hello, Sign in</h2>';
+            }
+            ?>
         </div>
         <div class="hdn-content">
             <h3>Digital Content & Devices</h3>
@@ -103,7 +109,13 @@
                     <i class="fas fa-caret-down"></i>
                 </div>
                 <div class="sign">
-                    <span>Hello, Sign in</span>
+                    <span>
+                        <?php if (isset($_SESSION['user'])) {
+                            echo 'Hello, ' . $_SESSION['user']['name'] . '!';
+                        } else {
+                            echo 'Hello, Sign in';
+                        } ?>
+                    </span>
                     <div class="flex ac">
                         <span>Accounts & Lists</span>
                         <i class="fas fa-caret-down"></i>
