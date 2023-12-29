@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../header.php';
+include __DIR__ . '/../components/header.php';
 ?>
 
 <section class="sec-1">
@@ -252,5 +252,5 @@ include __DIR__ . '/../header.php';
 </section>
 
 <?php
-include __DIR__ . '/../footer.php';
+include __DIR__ . '/../components/footer.php';
 ?>

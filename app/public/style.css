@@ -837,7 +837,7 @@ i {
     transition: all 2s;
     display: none;
     width: 500px;
-    height: 350px;
+    height: 400px;
     top: 60px;
     right: 80px;
     background-color: white;
@@ -866,10 +866,51 @@ i {
     width: 0.5px;
     color: black;
     background-color: rgb(190, 190, 190);
-    height: 280px;
+    height: 300px;
 }
 
 .stop-scroll {
     overflow: hidden;
     height: 100%;
+}
+
+.sign-in-section {
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.start-here-paragraph {
+    margin: 0;
+    font-size: 14px;
+}
+
+.start-here-link {
+    text-decoration: none;
+    color: #0066c0;
+}
+
+.start-here-link:hover {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+.custom-hr {
+    width: 90%;
+    margin: 0 auto;
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.sign-in-button {
+    background-color: #ff9900;
+    color: #111;
+    border: 1px solid #ff9900;
+    padding: 4px 72px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sign-in-button:hover {
+    background-color: #ffbf80;
 }
