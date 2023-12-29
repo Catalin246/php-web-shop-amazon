@@ -4,7 +4,7 @@ class User
 {
     private int $id;
     private string $email;
-    private string $firstName;
+    private string $name;
     private string $lastName;
     private string $phone;
     private int $userRoleId;
@@ -58,49 +58,25 @@ class User
     }
 
     /**
-     * Get the value of firstName
+     * Get the value of name
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getName(): string
     {
-        return $this->firstName;
+        return $this->name;
     }
 
     /**
-     * Set the value of firstName
+     * Set the value of name
      *
-     * @param string $firstName
+     * @param string $name
      *
      * @return self
      */
-    public function setFirstName(string $firstName): self
+    public function setName(string $name): self
     {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of lastName
-     *
-     * @return string
-     */
-    public function getLastName(): string
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * Set the value of lastName
-     *
-     * @param string $lastName
-     *
-     * @return self
-     */
-    public function setLastName(string $lastName): self
-    {
-        $this->lastName = $lastName;
+        $this->name = $name;
 
         return $this;
     }
