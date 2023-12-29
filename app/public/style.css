@@ -857,8 +857,8 @@ i {
 
 .hdn-table li {
     color: rgb(84, 84, 84);
-    font-size: 13px;
-    padding: 5px 0;
+    font-size: 14px;
+    padding: 0;
     cursor: pointer;
 }
 
@@ -889,6 +889,15 @@ i {
 }
 
 .start-here-link:hover {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+.link {
+    color: #545454;
+}
+
+.link:hover {
     color: #ff0000;
     text-decoration: underline;
 }
