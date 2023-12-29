@@ -9,15 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>Register</title>
 </head>
 
 <body>
-    <div class="container-signin">
+    <div class="container signin">
         <div class="row d-flex justify-content-center">
             <a href="/"><img class="small-logo" src="../assets/images/amazon-logo.png" alt=""></a>
         </div>
@@ -49,7 +48,7 @@
                             <button id="registerSubmit" type="submit" class="btn sign-in-button btn-block">Create your
                                 Amazon account</button>
                         </div>
-                        <div class="form-group divider">
+                        <div class="form-group divider-signin">
                             <hr><small>Already have an account?</small>
                         </div>
                         <p class="form-group"><a href="index" class="btn sign-in-button btn-block">Sign in to your
@@ -66,5 +65,7 @@
         </div>
     </div>
 </body>
+
+<script src="../dist/user.bundle.js"></script>
 
 </html>

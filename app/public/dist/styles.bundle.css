@@ -1,4 +1,10 @@
+/*!***********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./app/public/assets/css/style.css ***!
+  \***********************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap);
+/*!***************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./app/public/assets/css/style.css (1) ***!
+  \***************************************************************************************/
 * {
     margin: 0;
     padding: 0;
@@ -921,6 +927,9 @@ i {
 .sign-in-button:hover {
     background-color: #ffbf80;
 }
+/*!**************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./app/public/assets/css/hdn-sign.css ***!
+  \**************************************************************************************/
 form {
     margin: 0px 10px;
 }
@@ -930,17 +939,17 @@ h2 {
     margin-bottom: 2px;
 }
 
-.container-signin {
+.signin {
     max-width: 360px;
 }
 
-.divider {
+.divider-signin {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 5px;
 }
 
-.divider hr {
+.dividersignin hr {
     margin: 7px 0px;
     width: 35%;
 }

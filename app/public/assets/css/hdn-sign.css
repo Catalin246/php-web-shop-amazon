@@ -7,17 +7,17 @@ h2 {
     margin-bottom: 2px;
 }
 
-.container-signin {
+.signin {
     max-width: 360px;
 }
 
-.divider {
+.divider-signin {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 5px;
 }
 
-.divider hr {
+.dividersignin hr {
     margin: 7px 0px;
     width: 35%;
 }
