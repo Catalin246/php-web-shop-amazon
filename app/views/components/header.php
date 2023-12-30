@@ -85,7 +85,7 @@
     <header>
         <div class="first">
             <div class="flex logo">
-                <a href="#"><img src="assets/images/logo.png" alt=""></a>
+                <a href="/"><img src="assets/images/logo.png" alt=""></a>
                 <div class="map flex">
                     <i class="fas fa-map-marker"></i>
                     <div>

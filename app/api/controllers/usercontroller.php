@@ -24,12 +24,7 @@ class UserController
         $data = json_decode($jsonInput, true);
 
         if ($data) {
-            $user = new User();
-            $user->setEmail($data['email'] ?? '');
-            $user->setName($data['name'] ?? '');
-            $user->setPhone($data['phone'] ?? null);
-            $user->setUserRoleId($data['userRoleId'] ?? 0);
-            $user->setPassword($data['password']);
+            $user = new User($data);
 
             $this->userService->create($user);
 

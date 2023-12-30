@@ -17,7 +17,6 @@ class User
      */
     public function __construct(array $userData)
     {
-        $this->setId($userData['id'] ?? 0);
         $this->setEmail($userData['email'] ?? '');
         $this->setName($userData['name'] ?? '');
         $this->setPhone($userData['phone'] ?? '');

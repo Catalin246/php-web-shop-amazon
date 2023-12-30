@@ -105,7 +105,7 @@ include __DIR__ . '/../components/header.php';
         <a href="#">Shop Now</a>
     </div>
     <div class="box box-c">
-        <h3>Kindle E Readers</h3>
+        <h3>Books</h3>
         <div>
             <img src="assets/images/reader.jpg" alt="">
         </div>

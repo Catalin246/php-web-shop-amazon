@@ -28,8 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
             userRoleId: 1,
         };
 
-        console.log(formData);
-
         fetch('http://localhost/api/user', {
             method: 'POST',
             headers: {
