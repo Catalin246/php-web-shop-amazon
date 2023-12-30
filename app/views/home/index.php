@@ -8,12 +8,6 @@ include __DIR__ . '/../components/header.php';
 <section class="sec-1">
     <div class="container">
         <div class="container-1">
-            <div class="para">
-                <p>You are on Amazon.com. You can also shop on Amazon for millions of products with fast local
-                    delivery.</p><a
-                    href="https://www.amazon.com/?&ext_vrnc=hi&tag=googhydrabk1-21&ref=pd_sl_nxqtetlae_e&adgrpid=60571832564&hvpone=&hvptwo=&hvadid=486453138860&hvpos=&hvnetw=g&hvrand=12535176714638732243&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9061830&hvtargid=kwd-296458789801&hydadcr=14452_2154371&gclid=Cj0KCQjwnvOaBhDTARIsAJf8eVNJ6D0_UEAgzp9_IEK8-AtbwjPY81k1murdrRDI1PsbLEmGdhyqKDMaArp9EALw_wcB">Click
-                    here to go to amazon.in</a>
-            </div>
             <div class="product-comp">
                 <div class="box box-c">
                     <h3>Shop Valentine's Day</h3>
