@@ -984,6 +984,15 @@ h2 {
     text-decoration: underline;
 }
 
+.link-footer {
+    color: #999999;
+}
+
+.link-footer:hover {
+    color: #0066c0;
+    text-decoration: underline;
+}
+
 .small-logo {
     width: 360px;
     height: 70px;

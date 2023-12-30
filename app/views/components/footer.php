@@ -7,53 +7,52 @@
             <div>
                 <div class="t-head">Get to Know Us</div>
                 <ul>
-                    <li>Careers</li>
-                    <li>Blogs</li>
-                    <li>About Amazon</li>
-                    <li>Investor Relations</li>
-                    <li>Amazon Advices</li>
-                    <li>Amazon Science</li>
+                    <li><a href="#" class="link-footer">Careers</a></li>
+                    <li><a href="#" class="link-footer">Blogs</a></li>
+                    <li><a href="#" class="link-footer">About Amazon</a></li>
+                    <li><a href="#" class="link-footer">Investor Relations</a></li>
+                    <li><a href="#" class="link-footer">Amazon Advices</a></li>
+                    <li><a href="#" class="link-footer">Amazon Science</a></li>
                 </ul>
             </div>
 
             <div>
                 <div class="t-head">Make Money with Us</div>
                 <ul>
-                    <li>Sell Products on Amazon</li>
-                    <li>Sell on Amazon Business</li>
-                    <li>Sell Apps on Amazon</li>
-                    <li>Become an Affiliate</li>
-                    <li>Advertise your Products</li>
-                    <li>Host an Amazon Hub</li>
+                    <li><a href="#" class="link-footer">Sell Products on Amazon</a></li>
+                    <li><a href="#" class="link-footer">Sell on Amazon Business</a></li>
+                    <li><a href="#" class="link-footer">Sell Apps on Amazon</a></li>
+                    <li><a href="#" class="link-footer">Become an Affiliate</a></li>
+                    <li><a href="#" class="link-footer">Advertise your Products</a></li>
+                    <li><a href="#" class="link-footer">Host an Amazon Hub</a></li>
                 </ul>
             </div>
-
 
             <div>
                 <div class="t-head">Amazon Payment Products</div>
                 <ul>
-                    <li>Amazon Business Cards</li>
-                    <li>Shop with Points</li>
-                    <li>Reload your Balance</li>
-                    <li>Amazon Currency Converter</li>
+                    <li><a href="#" class="link-footer">Amazon Business Cards</a></li>
+                    <li><a href="#" class="link-footer">Shop with Points</a></li>
+                    <li><a href="#" class="link-footer">Reload your Balance</a></li>
+                    <li><a href="#" class="link-footer">Amazon Currency Converter</a></li>
                 </ul>
             </div>
-
 
             <div>
                 <div class="t-head">Let Us Help You</div>
                 <ul>
-                    <li>Amazon and COVID-19</li>
-                    <li>Your Account</li>
-                    <li>Yoyr Orders</li>
-                    <li>Shipping Rates and Policies</li>
-                    <li>Returns and Replacements</li>
-                    <li>Manage your Content & Devices</li>
-                    <li>Amazon Assistant</li>
-                    <li>Help</li>
+                    <li><a href="#" class="link-footer">Amazon and COVID-19</a></li>
+                    <li><a href="#" class="link-footer">Your Account</a></li>
+                    <li><a href="#" class="link-footer">Your Orders</a></li>
+                    <li><a href="#" class="link-footer">Shipping Rates and Policies</a></li>
+                    <li><a href="#" class="link-footer">Returns and Replacements</a></li>
+                    <li><a href="#" class="link-footer">Manage your Content & Devices</a></li>
+                    <li><a href="#" class="link-footer">Amazon Assistant</a></li>
+                    <li><a href="#" class="link-footer">Help</a></li>
                 </ul>
             </div>
         </div>
+
     </div>
     <div class="line"></div>
     <div class="copy">
