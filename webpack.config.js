@@ -5,6 +5,7 @@ module.exports = {
     entry: {
         main: './app/public/assets/js/main.js',
         user: './app/public/assets/js/user.js',
+        home: './app/public/assets/js/home.js',
         styles: [
             './app/public/assets/css/style.css',
             './app/public/assets/css/hdn-sign.css',
@@ -12,7 +13,7 @@ module.exports = {
     },
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'app/public/dist'), // Adjusted path
+        path: path.resolve(__dirname, 'app/public/dist'),
     },
     module: {
         rules: [

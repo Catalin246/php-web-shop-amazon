@@ -8,35 +8,8 @@ include __DIR__ . '/../components/header.php';
 <section class="sec-1">
     <div class="container">
         <div class="container-1">
-            <div class="product-comp">
-                <div class="box box-c">
-                    <h3>Shop Valentine's Day</h3>
-                    <div>
-                        <img src="assets/images/shop valentine's.jpg" alt="">
-                    </div>
-                    <a href="#">See More</a>
-                </div>
-                <div class="box box-c">
-                    <h3>Electronics</h3>
-                    <div>
-                        <img src="assets/images/electronics.jpg" alt="">
-                    </div>
-                    <a href="#">See More</a>
-                </div>
-                <div class="box box-c">
-                    <h3>Find your ideal TV</h3>
-                    <div>
-                        <img src="assets/images/find your deal.jpg" alt="">
-                    </div>
-                    <a href="#">See More</a>
-                </div>
-                <div class="box box-c">
-                    <h3>Easy Returns</h3>
-                    <div>
-                        <img src="assets/images/easy return.jpg" alt="">
-                    </div>
-                    <a href="#">See More</a>
-                </div>
+            <div class="product-comp" id="categoryContainer">
+
             </div>
         </div>
         <div class="slider">
@@ -82,36 +55,10 @@ include __DIR__ . '/../components/header.php';
     </div>
 </section>
 
-<div class="product-comp">
-    <div class="box box-c">
-        <h3>For your Fitness Needs</h3>
-        <div>
-            <img src="assets/images/fitness.jpg" alt="">
-        </div>
-        <a href="#">Shop Now</a>
-    </div>
-    <div class="box box-c">
-        <h3>Create with Strip Lights</h3>
-        <div>
-            <img src="assets/images/light.jpg" alt="">
-        </div>
-        <a href="#">Shop Now</a>
-    </div>
-    <div class="box box-c">
-        <h3>New arrivals in Toys</h3>
-        <div>
-            <img src="assets/images/craft.jpg" alt="">
-        </div>
-        <a href="#">Shop Now</a>
-    </div>
-    <div class="box box-c">
-        <h3>Books</h3>
-        <div>
-            <img src="assets/images/reader.jpg" alt="">
-        </div>
-        <a href="#">Shop Now</a>
-    </div>
+<div class="product-comp" id="additionalContainer">
+
 </div>
+
 <section class="sec-2">
     <div class="slide-sec">
         <div class="l-btn btn-1c"><i class="fa-solid fa-chevron-left"></i></div>
@@ -131,6 +78,8 @@ include __DIR__ . '/../components/header.php';
         </ul>
     </div>
 </section>
+
+<script src="../dist/home.bundle.js"></script>
 
 <?php
 include __DIR__ . '/../components/footer.php';
