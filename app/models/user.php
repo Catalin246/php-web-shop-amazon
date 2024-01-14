@@ -20,7 +20,7 @@ class User
         $this->setEmail($userData['email'] ?? '');
         $this->setName($userData['name'] ?? '');
         $this->setPhone($userData['phone'] ?? '');
-        $this->setUserRoleId($userData['userRoleId'] ?? 0);
+        $this->setUserRoleId($userData['user_role_id'] ?? 0);
         $this->setPassword($userData['password'] ?? '');
     }
 

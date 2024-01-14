@@ -159,6 +159,10 @@ i {
     border: 1px solid transparent;
 }
 
+.logout a {
+    color: white;
+}
+
 .right img {
     width: 35px;
     height: 35px;

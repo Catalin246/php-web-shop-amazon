@@ -25,9 +25,10 @@ class LoginController
             $user = new User($this->userService->getUserByEmail($email));
 
             if ($user && $password === $user->getPassword()) {
+                $_SESSION['user'] = $user->toArray();
+
                 if ($user->getUserRoleId() == 1) {
                     $redirectTo = '/';
-                    $_SESSION['user'] = $user->toArray();
                 } else {
                     $redirectTo = '/admin';
                 }
