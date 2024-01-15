@@ -15,31 +15,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
-    <header>
-        <div class="first">
-            <div class="flex logo">
-                <a href="/admin"><img src="assets/images/logo.png" alt=""></a>
+    <div class="admin-nav container-fluid px-5 py-3 d-flex justify-content-center">
+        <div class="row">
+            <div class="margin admin-logo col-2 py-2">
+                <a class="p-1 d-flex align-items-center justify-content-center" href="/admin"><img
+                        src="assets/images/logo.png" alt=""></a>
             </div>
-
-            <div class="flex input">
-                <div>
-                    <span>All</span>
-                    <i class="fas fa-caret-down""></i>
+            <div class="col-8 d-flex align-items-center justify-content-center">
+                <div class="all p-2 d-flex align-items-center justify-content-center">
+                    <span class="px-2">All</span>
+                    <i class="fas fa-caret-down"></i>
                 </div>
-                <input type=" text">
-                        <i class="fas fa-search"></i>
-                </div>
-                <div class="flex right">
-                    <div class="flex lang">
-                        <img src="assets/images/usflag.jpg" alt="">
-                        <span>EN</span>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="flex lang logout">
-                        <div class="flex ac">
-                            <a href="/login/logout">Log out</a>
-                        </div>
-                    </div>
+                <input class="search-text p-2 px-5" type=" text">
+                <div class="search p-2 d-flex align-items-center justify-content-center">
+                    <i class="fas fa-search"></i>
                 </div>
             </div>
-    </header>
+            <div class="margin col-1 py-2 d-flex align-items-center justify-content-center">
+                <img id="language" src="assets/images/usflag.jpg" alt="">
+                <span class="p-2">EN</span>
+                <i class="fas fa-caret-down"></i>
+            </div>
+            <div class="margin col-1 py-2 d-flex align-items-center justify-content-center">
+                <a href="/login/logout">Log out</a>
+            </div>
+        </div>
+    </div>

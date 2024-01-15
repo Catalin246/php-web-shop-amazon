@@ -110,6 +110,5 @@ class CategoryController
             echo json_encode(['status' => 'error', 'message' => 'Missing category ID']);
         }
     }
-
 }
 ?>

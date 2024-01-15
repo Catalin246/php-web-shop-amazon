@@ -44,3 +44,28 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('/api/user')
+        .then(response => response.json())
+        .then(data => {
+
+            const tableBody = document.querySelector('#userTable tbody');
+
+            data.data.forEach(user => {
+                const row = tableBody.insertRow();
+                row.innerHTML = `
+                    <th scope="row">${user.id}</th>
+                    <td>${user.email}</td>
+                    <td>${user.name}</td>
+                    <td>${user.phone}</td>
+                    <td>${user.email}</td>
+                    <td>
+                        <button type="button" class="btn btn-warning btn-sm">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                `;
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+});

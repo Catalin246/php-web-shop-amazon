@@ -682,7 +682,7 @@ i {
     height: 375px;
 }
 
-.table {
+.list {
     margin: 0 150px;
     height: 100%;
     display: flex;
@@ -690,7 +690,7 @@ i {
     padding-top: 50px;
 }
 
-.table div {
+.list div {
     width: 230px;
 }
 
@@ -701,7 +701,7 @@ i {
     margin-bottom: 5px;
 }
 
-.table li {
+.list li {
     color: rgb(223, 221, 221);
     padding-top: 10px;
     font-weight: lighter;
@@ -941,8 +941,85 @@ i {
 
 /* Admin Navigation */
 
-nav {
+.admin-nav {
     background-color: #131a22;
+}
+
+.admin-nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.admin-nav span {
+    color: #ffffff;
+}
+
+.admin-logo img {
+    height: 32px;
+    width: auto;
+    padding: 2%;
+}
+
+#language {
+    height: 32px;
+    width: 40px;
+    padding: 2%;
+}
+
+table {
+    display: table;
+}
+
+.margin {
+    border: 1px solid #131a22;
+}
+
+.margin:hover {
+    border: 1px solid #ffffff;
+}
+
+.all {
+    background-color: #eceaea;
+    height: 48px;
+    border-radius: 8px 0 0 8px;
+}
+
+.all:hover {
+    background-color: #cccaca;
+}
+
+.all span {
+    color: #333333;
+}
+
+.all i {
+    color: #333333;
+}
+
+.search-text {
+    width: 600px;
+    height: 50px;
+    border: 1px solid #131a22;
+}
+
+.search-text:focus {
+    outline: none;
+}
+
+.search {
+    background-color: #febd69;
+    height: 48px;
+    width: 65px;
+    border-radius: 0 8px 8px 0;
+}
+
+.search i {
+    font-size: 24px;
+    color: #333333;
+}
+
+.search:hover {
+    background-color: #fdae46;
 }
 /*!**************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./app/public/assets/css/hdn-sign.css ***!

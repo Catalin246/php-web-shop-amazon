@@ -1,3 +1,26 @@
 <?php
 include __DIR__ . '/../components/admin-header.php';
 ?>
+
+<div class="container p-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-10">
+            <table class="table table-bordered" id="userTable">
+                <thead>
+                    <tr>
+                        <th scope="col" class="col-2">ID</th>
+                        <th scope="col" class="col-2">Email</th>
+                        <th scope="col" class="col-2">Name</th>
+                        <th scope="col" class="col-2">Phone</th>
+                        <th scope="col" class="col-2">Role</th>
+                        <th scope="col" class="col-2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="../dist/user.bundle.js"></script>

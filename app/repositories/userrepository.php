@@ -51,4 +51,40 @@ class UserRepository extends Repository
             echo $e;
         }
     }
+
+    public function getUserById($userId)
+    {
+        try {
+            $stmt = $this->connection->prepare("SELECT * FROM user WHERE id = ?");
+            $stmt->execute([$userId]);
+
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            return $result ? $result : null;
+        } catch (PDOException $e) {
+            echo $e;
+            return null;
+        }
+    }
+
+    // Update a user
+    public function update($user)
+    {
+        try {
+
+        } catch (PDOException $e) {
+            echo $e;
+        }
+    }
+
+    // Delete a user by ID
+    public function delete($userId)
+    {
+        try {
+            $stmt = $this->connection->prepare("DELETE FROM user WHERE id = ?");
+            $stmt->execute([$userId]);
+        } catch (PDOException $e) {
+            echo $e;
+        }
+    }
 }

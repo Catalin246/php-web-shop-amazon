@@ -3,7 +3,7 @@
         <span>Back to Top</span>
     </div>
     <div class="detail">
-        <div class="table">
+        <div class="list">
             <div>
                 <div class="t-head">Get to Know Us</div>
                 <ul>

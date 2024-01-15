@@ -23,6 +23,25 @@ class UserService
         $repository = new UserRepository();
         $repository->create($user);
     }
+
+    public function getUserById($userId)
+    {
+        $repository = new UserRepository();
+        $user = $repository->getUserById($userId);
+        return $user;
+    }
+
+    public function update($user)
+    {
+        $repository = new UserRepository();
+        $repository->update($user);
+    }
+
+    public function delete($userId)
+    {
+        $repository = new UserRepository();
+        $repository->delete($userId);
+    }
 }
 
 ?>
