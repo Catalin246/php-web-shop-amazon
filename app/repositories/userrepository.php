@@ -19,7 +19,22 @@ class UserRepository extends Repository
         }
     }
 
-    function getUserByEmail($email)
+    public function getById($userId)
+    {
+        try {
+            $stmt = $this->connection->prepare("SELECT * FROM user WHERE id = ?");
+            $stmt->execute([$userId]);
+
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            return $result ? $result : null;
+        } catch (PDOException $e) {
+            echo $e;
+            return null;
+        }
+    }
+
+    function getByEmail($email)
     {
         try {
             $stmt = $this->connection->prepare("SELECT * FROM user WHERE email = ?");
@@ -52,32 +67,25 @@ class UserRepository extends Repository
         }
     }
 
-    public function getUserById($userId)
-    {
-        try {
-            $stmt = $this->connection->prepare("SELECT * FROM user WHERE id = ?");
-            $stmt->execute([$userId]);
-
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            return $result ? $result : null;
-        } catch (PDOException $e) {
-            echo $e;
-            return null;
-        }
-    }
-
-    // Update a user
     public function update($user)
     {
         try {
+            $stmt = $this->connection->prepare("UPDATE user SET email = ?, name = ?, phone = ?, user_role_id = ?, `password` = ? WHERE id = ?");
+
+            $stmt->execute([
+                $user->getEmail(),
+                $user->getName(),
+                $user->getPhone(),
+                $user->getUserRoleId(),
+                $user->getPassword(),
+            ]);
 
         } catch (PDOException $e) {
             echo $e;
         }
     }
 
-    // Delete a user by ID
+
     public function delete($userId)
     {
         try {

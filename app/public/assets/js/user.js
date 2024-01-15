@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <td>${user.email}</td>
                     <td>${user.name}</td>
                     <td>${user.phone}</td>
-                    <td>${user.email}</td>
+                    <td>${user.user_role_id}</td>
                     <td>
                         <button type="button" class="btn btn-warning btn-sm">Edit</button>
                         <button type="button" class="btn btn-danger btn-sm">Delete</button>

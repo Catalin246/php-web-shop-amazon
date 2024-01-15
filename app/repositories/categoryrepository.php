@@ -5,7 +5,6 @@ require __DIR__ . '/../models/category.php';
 
 class CategoryRepository extends Repository
 {
-    // Get all categories
     public function getAll()
     {
         try {
@@ -21,8 +20,7 @@ class CategoryRepository extends Repository
         }
     }
 
-    // Get a category by ID
-    public function getCategoryById($categoryId)
+    public function getById($categoryId)
     {
         try {
             $stmt = $this->connection->prepare("SELECT * FROM category WHERE id = ?");
@@ -37,7 +35,6 @@ class CategoryRepository extends Repository
         }
     }
 
-    // Create a new category
     public function create($category)
     {
         try {
@@ -53,7 +50,6 @@ class CategoryRepository extends Repository
         }
     }
 
-    // Update a category
     public function update($category)
     {
         try {
@@ -70,7 +66,6 @@ class CategoryRepository extends Repository
         }
     }
 
-    // Delete a category by ID
     public function delete($categoryId)
     {
         try {

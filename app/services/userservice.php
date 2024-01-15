@@ -11,10 +11,17 @@ class UserService
         return $users;
     }
 
-    function getUserByEmail($email)
+    public function getById($userId)
     {
         $repository = new UserRepository();
-        $user = $repository->getUserByEmail($email);
+        $user = $repository->getById($userId);
+        return $user;
+    }
+
+    function getByEmail($email)
+    {
+        $repository = new UserRepository();
+        $user = $repository->getByEmail($email);
         return $user;
     }
 
@@ -22,13 +29,6 @@ class UserService
     {
         $repository = new UserRepository();
         $repository->create($user);
-    }
-
-    public function getUserById($userId)
-    {
-        $repository = new UserRepository();
-        $user = $repository->getUserById($userId);
-        return $user;
     }
 
     public function update($user)

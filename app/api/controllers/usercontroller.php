@@ -30,6 +30,24 @@ class UserController
         }
     }
 
+    public function getAll()
+    {
+        $categories = $this->userService->getAll();
+        echo json_encode(['status' => 'success', 'data' => $categories]);
+    }
+
+    public function getById($userId)
+    {
+        $user = $this->userService->getById($userId);
+
+        if ($user) {
+            echo json_encode(['status' => 'success', 'data' => $user]);
+        } else {
+            http_response_code(404);
+            echo json_encode(['status' => 'error', 'message' => 'User not found']);
+        }
+    }
+
     public function create()
     {
         $jsonInput = file_get_contents('php://input');
@@ -47,24 +65,6 @@ class UserController
         }
     }
 
-    public function getAll()
-    {
-        $categories = $this->userService->getAll();
-        echo json_encode(['status' => 'success', 'data' => $categories]);
-    }
-
-    public function getById($userId)
-    {
-        $user = $this->userService->getUserById($userId);
-
-        if ($user) {
-            echo json_encode(['status' => 'success', 'data' => $user]);
-        } else {
-            http_response_code(404);
-            echo json_encode(['status' => 'error', 'message' => 'User not found']);
-        }
-    }
-
     public function update()
     {
         $jsonInput = file_get_contents('php://input');
@@ -73,7 +73,7 @@ class UserController
         $userId = $_GET['id'] ?? null;
 
         if ($userId) {
-            $existingUser = $this->userService->getUserById($userId);
+            $existingUser = $this->userService->getById($userId);
 
             if ($existingUser) {
                 $updatedUser = new User($data);
@@ -92,16 +92,18 @@ class UserController
         }
     }
 
-
     public function delete()
     {
         $userId = $_GET['id'] ?? null;
 
         if ($userId) {
-            $deleted = $this->userService->delete($userId);
+            $existingUser = $this->userService->getById($userId);
 
-            if ($deleted) {
+            $this->userService->delete($userId);
+
+            if ($existingUser) {
                 echo json_encode(['status' => 'success', 'message' => 'User deleted successfully']);
+                $existingUser = null;
             } else {
                 http_response_code(404);
                 echo json_encode(['status' => 'error', 'message' => 'User not found or already deleted']);

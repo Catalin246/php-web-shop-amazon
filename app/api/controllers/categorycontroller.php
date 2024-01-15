@@ -29,23 +29,6 @@ class CategoryController
         }
     }
 
-    public function create()
-    {
-        $jsonInput = file_get_contents('php://input');
-        $data = json_decode($jsonInput, true);
-
-        if ($data) {
-            $category = new Category($data);
-
-            $this->categoryService->create($category);
-
-            echo json_encode(['status' => 'success', 'message' => 'Category created successfully']);
-        } else {
-            http_response_code(400);
-            echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data']);
-        }
-    }
-
     public function getAll()
     {
         $categories = $this->categoryService->getAll();
@@ -61,6 +44,23 @@ class CategoryController
         } else {
             http_response_code(404);
             echo json_encode(['status' => 'error', 'message' => 'Category not found']);
+        }
+    }
+
+    public function create()
+    {
+        $jsonInput = file_get_contents('php://input');
+        $data = json_decode($jsonInput, true);
+
+        if ($data) {
+            $category = new Category($data);
+
+            $this->categoryService->create($category);
+
+            echo json_encode(['status' => 'success', 'message' => 'Category created successfully']);
+        } else {
+            http_response_code(400);
+            echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data']);
         }
     }
 

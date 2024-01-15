@@ -22,7 +22,7 @@ class LoginController
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            $user = new User($this->userService->getUserByEmail($email));
+            $user = new User($this->userService->getByEmail($email));
 
             if ($user && $password === $user->getPassword()) {
                 $_SESSION['user'] = $user->toArray();

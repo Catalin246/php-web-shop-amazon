@@ -10,10 +10,10 @@ class CategoryService
         return $categories;
     }
 
-    public function getCategoryById($categoryId)
+    public function getById($categoryId)
     {
         $repository = new CategoryRepository();
-        $category = $repository->getCategoryById($categoryId);
+        $category = $repository->getById($categoryId);
         return $category;
     }
 
