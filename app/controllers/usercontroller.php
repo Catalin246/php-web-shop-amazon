@@ -12,6 +12,16 @@ class UserController
         $this->checkUserRole('/../views/user/index.php');
     }
 
+    public function add()
+    {
+        $this->checkUserRole('/../views/user/add.php');
+    }
+
+    public function edit()
+    {
+        $this->checkUserRole('/../views/user/edit.php');
+    }
+
     private function checkUserRole(string $path)
     {
         if (isset($_SESSION['user'])) {

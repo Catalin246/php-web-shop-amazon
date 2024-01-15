@@ -2,7 +2,15 @@
 include __DIR__ . '/../components/admin-header.php';
 ?>
 
+<script src="../dist/user.bundle.js"></script>
+
 <div class="container p-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-10 py-4 d-flex justify-content-end">
+            <a href="/user/add"><button type="button" class="btn btn-primary btn-sm">Add
+                    User</button></a>
+        </div>
+    </div>
     <div class="row d-flex justify-content-center">
         <div class="col-10">
             <table class="table table-bordered" id="userTable">
@@ -22,5 +30,3 @@ include __DIR__ . '/../components/admin-header.php';
         </div>
     </div>
 </div>
-
-<script src="../dist/user.bundle.js"></script>

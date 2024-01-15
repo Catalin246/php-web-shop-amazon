@@ -70,15 +70,15 @@ class UserRepository extends Repository
     public function update($user)
     {
         try {
-            $stmt = $this->connection->prepare("UPDATE user SET email = ?, name = ?, phone = ?, user_role_id = ?, `password` = ? WHERE id = ?");
+            $stmt = $this->connection->prepare("UPDATE user SET email = :email, name = :name, phone = :phone, user_role_id = :user_role_id WHERE id = :id");
 
-            $stmt->execute([
-                $user->getEmail(),
-                $user->getName(),
-                $user->getPhone(),
-                $user->getUserRoleId(),
-                $user->getPassword(),
-            ]);
+            $stmt->bindValue(':email', $user->getEmail());
+            $stmt->bindValue(':name', $user->getName());
+            $stmt->bindValue(':phone', $user->getPhone());
+            $stmt->bindValue(':user_role_id', $user->getUserRoleId());
+            $stmt->bindValue(':id', $user->getId());
+
+            $stmt->execute();
 
         } catch (PDOException $e) {
             echo $e;
