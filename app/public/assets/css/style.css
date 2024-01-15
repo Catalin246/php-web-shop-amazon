@@ -933,3 +933,9 @@ i {
 .sign-in-button:hover {
     background-color: #ffbf80;
 }
+
+/* Admin Navigation */
+
+nav {
+    background-color: #131a22;
+}

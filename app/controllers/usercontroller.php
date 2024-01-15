@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-class AdminController
+class UserController
 {
     function __construct()
     {
@@ -9,7 +9,7 @@ class AdminController
 
     public function index()
     {
-        $this->checkUserRole('/../views/admin/index.php');
+        $this->checkUserRole('/../views/user/index.php');
     }
 
     private function checkUserRole(string $path)

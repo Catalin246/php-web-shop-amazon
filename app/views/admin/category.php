@@ -1,1 +1,0 @@
-This is the category is the panel.

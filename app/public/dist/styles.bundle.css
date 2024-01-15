@@ -938,6 +938,12 @@ i {
 .sign-in-button:hover {
     background-color: #ffbf80;
 }
+
+/* Admin Navigation */
+
+nav {
+    background-color: #131a22;
+}
 /*!**************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./app/public/assets/css/hdn-sign.css ***!
   \**************************************************************************************/
