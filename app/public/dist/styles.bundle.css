@@ -1021,6 +1021,51 @@ table {
 .search:hover {
     background-color: #fdae46;
 }
+
+/* Error pages */
+
+body {
+    background-color: #f3f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.error-container {
+    text-align: center;
+}
+
+.error-image {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.error-code {
+    font-size: 36px;
+    color: #ff3300;
+}
+
+.error-message {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.back-home {
+    text-decoration: none;
+    color: #fff;
+    background-color: #0066c0;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.back-home:hover {
+    background-color: #004080;
+}
 /*!**************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./app/public/assets/css/hdn-sign.css ***!
   \**************************************************************************************/

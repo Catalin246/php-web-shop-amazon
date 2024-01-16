@@ -19,12 +19,12 @@ class AdminController
                 require __DIR__ . $path;
             } else {
                 http_response_code(403);
-                echo 'Forbidden';
+                require __DIR__ . '/../views/response/403.php';
                 exit();
             }
         } else {
             http_response_code(404);
-            echo 'Not Found';
+            require __DIR__ . '/../views/response/404.php';
             exit();
         }
     }
