@@ -48,6 +48,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    const userRoles = {
+        1: 'User',
+        2: 'Admin'
+    };
+
     fetch('/api/user')
         .then(response => response.json())
         .then(data => {
@@ -61,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <td>${user.email}</td>
                     <td>${user.name}</td>
                     <td>${user.phone}</td>
-                    <td>${user.user_role_id}</td>
+                    <td>${userRoles[user.user_role_id]}</td>
                     <td class="d-flex justify-content-center">
                         <a href="/user/edit?id=${user.id}"><button update-userid="${user.id} type="button" class="btn btn-warning btn-sm mx-2">Edit</button></a>
                         <button delete-userid="${user.id}" type="button" class="btn btn-danger btn-sm mx-2">Delete</button>
