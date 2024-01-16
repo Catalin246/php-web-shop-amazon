@@ -117,6 +117,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const pass = document.getElementById('addPassword').value;
             const repeatPass = document.getElementById('addRepeatPassword').value;
 
+            if (pass.length < 8) {
+                alert('Password must be at least 8 characters long.');
+                return;
+            }
+
             if (pass !== repeatPass) {
                 alert('Passwords do not match.');
                 return;
