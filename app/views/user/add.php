@@ -6,6 +6,8 @@ include __DIR__ . '/../components/admin-header.php';
 
 <div class="container mt-5 d-flex justify-content-center">
     <div class="col-md-6">
+        <a href="/user"><button type="button" class="m-2 my-3 px-4 btn btn-danger">Back</button></a>
+
         <h2 class="p-2">Add User</h2>
 
         <form id="addUserForm">

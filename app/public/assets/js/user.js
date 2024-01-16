@@ -63,17 +63,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     <td>${user.phone}</td>
                     <td>${user.user_role_id}</td>
                     <td class="d-flex justify-content-center">
-                        <a href="/user/edit"><button type="button" class="btn btn-warning btn-sm mx-2">Edit</button></a>
-                        <button data-userid="${user.id}" type="button" class="btn btn-danger btn-sm mx-2">Delete</button>
+                        <a href="/user/edit?id=${user.id}"><button update-userid="${user.id} type="button" class="btn btn-warning btn-sm mx-2">Edit</button></a>
+                        <button delete-userid="${user.id}" type="button" class="btn btn-danger btn-sm mx-2">Delete</button>
                     </td>
                     </tr>
                 `;
             });
 
-            const deleteButtons = document.querySelectorAll('#userTable tbody button[data-userid]');
+            const deleteButtons = document.querySelectorAll('#userTable tbody button[delete-userid]');
             deleteButtons.forEach(deleteButton => {
                 deleteButton.addEventListener('click', function () {
-                    const userId = this.getAttribute('data-userid');
+                    const userId = this.getAttribute('delete-userid');
                     deleteUser(userId);
                 });
             });
@@ -156,4 +156,68 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const editUserForm = document.getElementById('editUserForm');
+
+    if (editUserForm) {
+        const userId = getUserIdFromUrl();
+
+        fetch(`/api/user?id=${userId}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('editName').value = data.data.name;
+                document.getElementById('editEmail').value = data.data.email;
+                document.getElementById('editPhone').value = data.data.phone;
+                document.getElementById('editRole').value = data.data.user_role_id;
+            })
+            .catch(error => console.error('Error fetching user data:', error));
+
+        editUserForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('editName').value;
+            const email = document.getElementById('editEmail').value;
+            const phone = document.getElementById('editPhone').value;
+            const role = document.getElementById('editRole').value;
+
+            console.log(document.getElementById('editRole').value);
+
+            const formData = {
+                name: name,
+                email: email,
+                phone: phone,
+                user_role_id: role,
+            };
+
+            fetch(`/api/user?id=${userId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        window.location.href = '/user';
+                    } else {
+                        console.error('Error updating user:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    }
+
+    function getUserIdFromUrl() {
+        const url = new URL(window.location.href);
+
+        const userId = url.searchParams.get('id');
+
+        return userId;
+    }
+});
+
 
