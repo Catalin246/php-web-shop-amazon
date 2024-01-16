@@ -102,3 +102,53 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const addUserForm = document.getElementById('addUserForm');
+
+    if (addUserForm) {
+        addUserForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('addName').value;
+            const email = document.getElementById('addEmail').value;
+            const phone = document.getElementById('addPhone').value;
+            const role = document.getElementById('addRole').value;
+            const pass = document.getElementById('addPassword').value;
+            const repeatPass = document.getElementById('addRepeatPassword').value;
+
+            if (pass !== repeatPass) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            const formData = {
+                name: name,
+                email: email,
+                phone: phone,
+                user_role_id: role,
+                password: pass,
+            };
+
+            fetch('/api/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        window.location.href = '/user';
+                    } else {
+                        console.error('Error updating user:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    }
+});
+

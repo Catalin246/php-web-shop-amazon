@@ -19,7 +19,7 @@
         <div class="row">
             <div class="margin admin-logo col-2 py-2">
                 <a class="p-1 d-flex align-items-center justify-content-center" href="/admin"><img
-                        src="assets/images/logo.png" alt=""></a>
+                        src="../assets/images/logo.png" alt=""></a>
             </div>
             <div class="col-8 d-flex align-items-center justify-content-center">
                 <div class="all p-2 d-flex align-items-center justify-content-center">
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="margin col-1 py-2 d-flex align-items-center justify-content-center">
-                <img id="language" src="assets/images/usflag.jpg" alt="">
+                <img id="language" src="../assets/images/usflag.jpg" alt="">
                 <span class="p-2">EN</span>
                 <i class="fas fa-caret-down"></i>
             </div>
