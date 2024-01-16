@@ -1,24 +1,3 @@
-function deleteUser(userId) {
-    console.log(userId);
-
-    fetch(`/api/user?id=${userId}`, {
-        method: 'DELETE',
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(`User with ID ${userId} deleted successfully:`, data);
-        })
-        .catch(error => {
-            console.error(`Error deleting user with ID ${userId}:`, error);
-        });
-}
-
-
 document.addEventListener('DOMContentLoaded', function () {
     const registrationForm = document.getElementById('registrationForm');
 
@@ -72,23 +51,54 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('/api/user')
         .then(response => response.json())
         .then(data => {
-
             const tableBody = document.querySelector('#userTable tbody');
 
             data.data.forEach(user => {
                 const row = tableBody.insertRow();
                 row.innerHTML = `
-                    <th scope="row">${user.id}</th>
+                    <tr data-userid="${user.id}">
+                    <td>${user.id}</td>
                     <td>${user.email}</td>
                     <td>${user.name}</td>
                     <td>${user.phone}</td>
                     <td>${user.user_role_id}</td>
                     <td class="d-flex justify-content-center">
                         <a href="/user/edit"><button type="button" class="btn btn-warning btn-sm mx-2">Edit</button></a>
-                        <button id="${user.id}" type="button" onclick="deleteUser(${user.id})" class="btn btn-danger btn-sm mx-2">Delete</button>
+                        <button data-userid="${user.id}" type="button" class="btn btn-danger btn-sm mx-2">Delete</button>
                     </td>
+                    </tr>
                 `;
+            });
+
+            const deleteButtons = document.querySelectorAll('#userTable tbody button[data-userid]');
+            deleteButtons.forEach(deleteButton => {
+                deleteButton.addEventListener('click', function () {
+                    const userId = this.getAttribute('data-userid');
+                    deleteUser(userId);
+                });
             });
         })
         .catch(error => console.error('Error fetching data:', error));
+
+    function deleteUser(userId) {
+        const confirmDelete = confirm('Are you sure you want to delete this user?');
+        if (!confirmDelete) {
+            return;
+        }
+
+        fetch(`/api/user?id=${userId}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.ok) {
+                    location.reload()
+                    console.log('User deleted successfully');
+                } else {
+                    console.error('Error deleting user');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
 });
