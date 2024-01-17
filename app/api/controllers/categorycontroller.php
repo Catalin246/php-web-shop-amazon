@@ -37,7 +37,7 @@ class CategoryController
 
     public function getById($categoryId)
     {
-        $category = $this->categoryService->getCategoryById($categoryId);
+        $category = $this->categoryService->getById($categoryId);
 
         if ($category) {
             echo json_encode(['status' => 'success', 'data' => $category]);
@@ -72,7 +72,7 @@ class CategoryController
         $categoryId = $_GET['id'] ?? null;
 
         if ($categoryId) {
-            $existingCategory = $this->categoryService->getCategoryById($categoryId);
+            $existingCategory = $this->categoryService->getById($categoryId);
 
             if ($existingCategory) {
                 $updatedCategory = new Category($data);

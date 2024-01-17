@@ -7,6 +7,8 @@ class Category
     private string $description;
     private bool $display;
 
+    private string $image_url;
+
     /**
      * Category constructor.
      *
@@ -17,6 +19,7 @@ class Category
         $this->setName($categoryData['name'] ?? '');
         $this->setDescription($categoryData['description'] ?? '');
         $this->setDisplay($categoryData['display'] ?? false);
+        $this->setImageUrl($categoryData['image_url'] ?? false);
     }
 
     /**
@@ -31,6 +34,7 @@ class Category
             'name' => $this->name,
             'description' => $this->description,
             'display' => $this->display,
+            'image_url' => $this->image_url
         ];
     }
 
@@ -126,6 +130,30 @@ class Category
     public function setDisplay(bool $display): self
     {
         $this->display = $display;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of image url
+     *
+     * @return string
+     */
+    public function getImageUrl(): string
+    {
+        return $this->image_url;
+    }
+
+    /**
+     * Set the value of description
+     *
+     * @param string $image_url
+     *
+     * @return self
+     */
+    public function setImageUrl(string $image_url): self
+    {
+        $this->image_url = $image_url;
 
         return $this;
     }

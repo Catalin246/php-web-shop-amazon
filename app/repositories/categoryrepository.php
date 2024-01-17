@@ -38,12 +38,13 @@ class CategoryRepository extends Repository
     public function create($category)
     {
         try {
-            $stmt = $this->connection->prepare("INSERT INTO category (name, description, display) VALUES (?, ?, ?)");
+            $stmt = $this->connection->prepare("INSERT INTO category (name, description, display, image_url) VALUES (?, ?, ?, ?)");
 
             $stmt->execute([
                 $category->getName(),
                 $category->getDescription(),
-                $category->getDisplay()
+                $category->getDisplay(),
+                $category->getImageUrl()
             ]);
         } catch (PDOException $e) {
             echo $e;
@@ -53,14 +54,15 @@ class CategoryRepository extends Repository
     public function update($category)
     {
         try {
-            $stmt = $this->connection->prepare("UPDATE category SET name = ?, description = ?, display = ? WHERE id = ?");
+            $stmt = $this->connection->prepare("UPDATE category SET name = :name, description = :description, display = :display, image_url = :image_url WHERE id = :id");
 
-            $stmt->execute([
-                $category->getName(),
-                $category->getDescription(),
-                $category->getDisplay() ? 1 : 0,
-                $category->getId()
-            ]);
+            $stmt->bindValue(':name', $category->getName());
+            $stmt->bindValue(':description', $category->getDescription());
+            $stmt->bindValue(':display', $category->getDisplay() ? 1 : 0);
+            $stmt->bindValue(':image_url', $category->getImageUrl());
+            $stmt->bindValue(':id', $category->getId());
+
+            $stmt->execute();
         } catch (PDOException $e) {
             echo $e;
         }
