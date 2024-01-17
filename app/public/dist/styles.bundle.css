@@ -1024,15 +1024,6 @@ table {
 
 /* Error pages */
 
-body {
-    background-color: #f3f3f3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-}
-
 .error-container {
     text-align: center;
 }
