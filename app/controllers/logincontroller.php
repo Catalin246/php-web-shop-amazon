@@ -24,7 +24,7 @@ class LoginController
 
             $user = new User($this->userService->getByEmail($email));
 
-            if ($user && $password === $user->getPassword()) {
+            if ($user && password_verify($password, $user->getPassword())) {
                 $_SESSION['user'] = $user->toArray();
 
                 if ($user->getUserRoleId() == 1) {

@@ -59,7 +59,7 @@ class UserRepository extends Repository
                 $user->getName(),
                 $user->getPhone(),
                 $user->getUserRoleId(),
-                $user->getPassword()
+                password_hash($user->getPassword(), PASSWORD_DEFAULT)
             ]);
 
         } catch (PDOException $e) {
