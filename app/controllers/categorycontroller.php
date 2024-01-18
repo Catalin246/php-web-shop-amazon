@@ -9,23 +9,23 @@ class CategoryController
 
     public function index()
     {
-        $this->checkCategoryRole('/../views/category/index.php');
+        $this->checkUserRole('/../views/category/index.php');
     }
 
     public function add()
     {
-        $this->checkCategoryRole('/../views/category/add.php');
+        $this->checkUserRole('/../views/category/add.php');
     }
 
     public function edit()
     {
-        $this->checkCategoryRole('/../views/category/edit.php');
+        $this->checkUserRole('/../views/category/edit.php');
     }
 
-    private function checkCategoryRole(string $path)
+    private function checkUserRole(string $path)
     {
-        if (isset($_SESSION['category'])) {
-            if ($_SESSION['category']['category_role_id'] == 2) {
+        if (isset($_SESSION['user'])) {
+            if ($_SESSION['user']['user_role_id'] == 2) {
                 require __DIR__ . $path;
             } else {
                 http_response_code(403);

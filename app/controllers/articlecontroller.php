@@ -9,23 +9,23 @@ class ArticleController
 
     public function index()
     {
-        $this->checkArticleRole('/../views/article/index.php');
+        $this->checkUserRole('/../views/article/index.php');
     }
 
     public function add()
     {
-        $this->checkArticleRole('/../views/article/add.php');
+        $this->checkUserRole('/../views/article/add.php');
     }
 
     public function edit()
     {
-        $this->checkArticleRole('/../views/article/edit.php');
+        $this->checkUserRole('/../views/article/edit.php');
     }
 
-    private function checkArticleRole(string $path)
+    private function checkUserRole(string $path)
     {
-        if (isset($_SESSION['article'])) {
-            if ($_SESSION['article']['article_role_id'] == 2) {
+        if (isset($_SESSION['user'])) {
+            if ($_SESSION['user']['user_role_id'] == 2) {
                 require __DIR__ . $path;
             } else {
                 http_response_code(403);

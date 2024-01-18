@@ -9,13 +9,13 @@ class OrderController
 
     public function index()
     {
-        $this->checkOrderRole('/../views/order/index.php');
+        $this->checkUserRole('/../views/order/index.php');
     }
 
-    private function checkOrderRole(string $path)
+    private function checkUserRole(string $path)
     {
-        if (isset($_SESSION['order'])) {
-            if ($_SESSION['order']['order_role_id'] == 2) {
+        if (isset($_SESSION['user'])) {
+            if ($_SESSION['user']['user_role_id'] == 2) {
                 require __DIR__ . $path;
             } else {
                 http_response_code(403);
