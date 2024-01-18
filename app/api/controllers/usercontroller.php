@@ -32,8 +32,8 @@ class UserController
 
     public function getAll()
     {
-        $categories = $this->userService->getAll();
-        echo json_encode(['status' => 'success', 'data' => $categories]);
+        $users = $this->userService->getAll();
+        echo json_encode(['status' => 'success', 'data' => $users]);
     }
 
     public function getById($userId)

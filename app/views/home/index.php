@@ -2,6 +2,7 @@
 session_start();
 
 include __DIR__ . '/../components/header.php';
+
 ?>
 
 <section class="sec-1">
