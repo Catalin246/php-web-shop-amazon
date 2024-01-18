@@ -10,6 +10,13 @@ class ArticleService
         return $articles;
     }
 
+    public function getAllByCategory($categoryId)
+    {
+        $repository = new ArticleRepository();
+        $articles = $repository->getAllbyCategory($categoryId);
+        return $articles;
+    }
+
     public function getById($articleId)
     {
         $repository = new ArticleRepository();

@@ -36,8 +36,26 @@ include __DIR__ . '/../components/header.php';
         <div class="l-btn btn-1b"><i class="fa-solid fa-chevron-left"></i></div>
         <div class="r-btn btn-1a"><i class="fa-solid fa-chevron-right"></i></div>
         <h3>Popular Products in PC Internationally</h3>
+
+
         <ul class="product-slide product-slide-1">
-            <li><img src="assets/images/pc2.jpg" alt=""></li>
+            <li>
+                <div class="card" style="">
+                    <img class="card-img-top" src="assets/images/pc2.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title">Laptop</h3>
+                        <p class="card-text">
+                            Price: 29.99
+                        </p>
+                        <p class="card-text">A bouquet of beautiful red roses for your loved one.</p>
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="assets/images/pc2.jpg" alt="">
+                <a class="py-3 d-flex justify-content-start" href="#">Add to cart</a>
+            </li>
             <li><img src="assets/images/pc3.jpg" alt=""></li>
             <li><img src="assets/images/pc4.jpg" alt=""></li>
             <li><img src="assets/images/pc5.jpg" alt=""></li>

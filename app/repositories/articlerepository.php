@@ -19,6 +19,21 @@ class ArticleRepository extends Repository
         }
     }
 
+    function getAllbyCategory($categoryId)
+    {
+        try {
+            $stmt = $this->connection->prepare("SELECT * FROM article WHERE category_id = ?");
+            $stmt->execute([$categoryId]);
+
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result ? $result : [];
+        } catch (PDOException $e) {
+            echo $e;
+            return [];
+        }
+    }
+
     public function getById($articleId)
     {
         try {

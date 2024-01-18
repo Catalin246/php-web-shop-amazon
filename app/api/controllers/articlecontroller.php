@@ -17,9 +17,12 @@ class ArticleController
             $this->create();
         } elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
             $id = $_GET['id'] ?? null;
+            $categoryId = $_GET['categoryId'] ?? null;
 
             if ($id !== null) {
                 $this->getById($id);
+            } else if ($categoryId !== null) {
+                $this->getAllByCategory($categoryId);
             } else {
                 $this->getAll();
             }
@@ -33,6 +36,12 @@ class ArticleController
     public function getAll()
     {
         $articles = $this->articleService->getAll();
+        echo json_encode(['status' => 'success', 'data' => $articles]);
+    }
+
+    public function getAllByCategory($categoryId)
+    {
+        $articles = $this->articleService->getAllByCategory($categoryId);
         echo json_encode(['status' => 'success', 'data' => $articles]);
     }
 

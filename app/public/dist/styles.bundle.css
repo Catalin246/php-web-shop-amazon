@@ -537,8 +537,6 @@ i {
 
 .sec-2 {
     width: 100%;
-    height: 400px;
-    padding: 25px;
     padding-top: 0;
     padding-bottom: 25px;
 }
@@ -1056,6 +1054,16 @@ table {
 
 .back-home:hover {
     background-color: #004080;
+}
+
+.product-slide .card {
+    width: 18rem;
+    padding: 15px;
+}
+
+.product-slide .card a:hover {
+    text-decoration: underline;
+    color: red;
 }
 /*!**************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./app/public/assets/css/hdn-sign.css ***!
