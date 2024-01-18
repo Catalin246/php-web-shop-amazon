@@ -80,7 +80,7 @@ class Order
      *
      * @return bool
      */
-    public function isDelivered(): bool
+    public function getDelivered(): bool
     {
         return $this->delivered;
     }
@@ -104,7 +104,7 @@ class Order
      *
      * @return bool
      */
-    public function isPaid(): bool
+    public function getPaid(): bool
     {
         return $this->paid;
     }

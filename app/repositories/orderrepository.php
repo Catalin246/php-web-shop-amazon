@@ -39,8 +39,8 @@ class OrderRepository extends Repository
         try {
             $stmt = $this->connection->prepare("INSERT INTO `order` (delivered, paid, user_id) VALUES (?, ?, ?)");
 
-            $delivered = $order->isDelivered() ? 1 : 0;
-            $paid = $order->isPaid() ? 1 : 0;
+            $delivered = $order->getDelivered() ? 1 : 0;
+            $paid = $order->getPaid() ? 1 : 0;
 
             $stmt->execute([$delivered, $paid, $order->getUserId()]);
         } catch (PDOException $e) {
@@ -54,8 +54,8 @@ class OrderRepository extends Repository
         try {
             $stmt = $this->connection->prepare("UPDATE `order` SET delivered = :delivered, paid = :paid, user_id = :user_id WHERE id = :id");
 
-            $stmt->bindValue(':delivered', $order->isDelivered());
-            $stmt->bindValue(':paid', $order->isPaid());
+            $stmt->bindValue(':delivered', $order->getDelivered());
+            $stmt->bindValue(':paid', $order->getPaid());
             $stmt->bindValue(':user_id', $order->getUserId());
             $stmt->bindValue(':id', $order->getId());
 
