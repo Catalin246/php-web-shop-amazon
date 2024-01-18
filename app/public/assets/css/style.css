@@ -1060,3 +1060,59 @@ table {
     text-decoration: underline;
     color: red;
 }
+
+/* Offcanvas */
+
+.flex {
+    display: flex;
+}
+
+#offcanvasRight {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 360px;
+    background-color: #fff;
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+#offcanvasRight.open {
+    transform: translateX(0);
+}
+
+.offcanvas-header {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.offcanvas-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.offcanvas-body {
+    padding: 1rem;
+}
+
+#toggle-btn {
+    background-color: #131a22;
+    border: 0;
+}
+
+#close-btn {
+    background-color: #fdae46;
+    color: #131a22;
+    padding: 10px 25px;
+    margin: 16px 0px 0px 16px;
+    border: 0;
+    border-radius: 5px;
+}
+
+#close-btn:hover {
+    background-color: #fdae99;
+}

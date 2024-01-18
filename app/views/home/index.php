@@ -4,7 +4,6 @@ session_start();
 include __DIR__ . '/../components/header.php';
 ?>
 
-
 <section class="sec-1">
     <div class="container">
         <div class="container-1">
@@ -37,7 +36,6 @@ include __DIR__ . '/../components/header.php';
         <div class="r-btn btn-1a"><i class="fa-solid fa-chevron-right"></i></div>
         <h3>Popular Products in PC Internationally</h3>
 
-
         <ul id="pc-products" class="product-slide product-slide-1">
         </ul>
     </div>
@@ -53,6 +51,7 @@ include __DIR__ . '/../components/header.php';
         <div class="r-btn btn-1d"><i class="fa-solid fa-chevron-right"></i></div>
         <h3>Top Sellers in Books</h3>
         <ul id="book-products" class="product-slide product-slide-2">
+
         </ul>
     </div>
 </section>

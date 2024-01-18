@@ -11,9 +11,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
     <title>Web Shop Amazon</title>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
 </head>
 
 <body>
@@ -129,8 +129,21 @@
                     <span>& Orders</span>
                 </div>
                 <div class="flex cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="ca">Cart</span>
+                    <button class="button" id="toggle-btn" type="button" onclick="toggleOffcanvas()"><i
+                            class="fas fa-shopping-cart"></i>
+                        <span class="ca">Cart</span></button>
+
+                    <div class="offcanvas offcanvas-end" id="offcanvasRight">
+                        <button class="button" id="close-btn" type="button" onclick="closeOffcanvas()">Back to
+                            shopping</button>
+                        <div class="offcanvas-header">
+                            <h2 class="offcanvas-title">Your Order</h2>
+                        </div>
+                        <div class="offcanvas-body">
+                            <!-- Content of the offcanvas body goes here -->
+                            ...
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

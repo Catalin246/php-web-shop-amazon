@@ -94,4 +94,33 @@ function fetchAndDisplayArticles(categoryId, elementId) {
 document.addEventListener("DOMContentLoaded", function () {
     fetchAndDisplayArticles(1, "book-products");
     fetchAndDisplayArticles(2, "pc-products");
+
+    const toggleButton = document.getElementById("toggle-btn");
+    const closeButton = document.getElementById("close-btn");
+
+    if (toggleButton) {
+        toggleButton.addEventListener("click", toggleOffcanvas);
+    }
+
+    if (closeButton) {
+        closeButton.addEventListener("click", closeOffcanvas);
+    }
 });
+
+function toggleOffcanvas() {
+    const offcanvas = document.getElementById('offcanvasRight');
+    offcanvas.classList.toggle('open');
+
+    const isOpen = offcanvas.classList.contains('open');
+
+    offcanvas.style.display = isOpen ? 'block' : 'none';
+}
+
+function closeOffcanvas() {
+    const offcanvas = document.getElementById('offcanvasRight');
+    offcanvas.classList.remove('open');
+
+    offcanvas.style.display = 'none';
+}
+
+
