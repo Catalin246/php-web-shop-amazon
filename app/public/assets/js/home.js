@@ -64,7 +64,7 @@ function fetchAndDisplayArticles(categoryId, elementId) {
 
                 const priceParagraph = document.createElement("p");
                 priceParagraph.classList.add("card-text");
-                priceParagraph.textContent = "Price: " + article.price;
+                priceParagraph.textContent = "Price: " + article.price + " €";
 
                 const descriptionParagraph = document.createElement("p");
                 descriptionParagraph.classList.add("card-text");
@@ -74,6 +74,7 @@ function fetchAndDisplayArticles(categoryId, elementId) {
                 addToCartButton.href = "#";
                 addToCartButton.classList.add("btn", "btn-primary");
                 addToCartButton.textContent = "Add to cart";
+                addToCartButton.addEventListener("click", toggleOffcanvas);
 
                 cardBody.appendChild(cardTitle);
                 cardBody.appendChild(priceParagraph);
