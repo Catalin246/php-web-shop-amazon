@@ -39,3 +39,59 @@ document.addEventListener('DOMContentLoaded', function () {
         container.appendChild(categoryBox);
     }
 });
+
+function fetchAndDisplayArticles(categoryId, elementId) {
+    fetch(`api/article?categoryId=${categoryId}`)
+        .then(response => response.json())
+        .then(articles => {
+            articles.data.forEach(article => {
+                const li = document.createElement("li");
+
+                const cardDiv = document.createElement("div");
+                cardDiv.classList.add("card");
+
+                const cardImage = document.createElement("img");
+                cardImage.classList.add("card-img-top");
+                cardImage.src = article.image;
+                cardImage.alt = "Card image cap";
+
+                const cardBody = document.createElement("div");
+                cardBody.classList.add("card-body");
+
+                const cardTitle = document.createElement("h3");
+                cardTitle.classList.add("card-title");
+                cardTitle.textContent = article.name;
+
+                const priceParagraph = document.createElement("p");
+                priceParagraph.classList.add("card-text");
+                priceParagraph.textContent = "Price: " + article.price;
+
+                const descriptionParagraph = document.createElement("p");
+                descriptionParagraph.classList.add("card-text");
+                descriptionParagraph.textContent = article.description;
+
+                const addToCartButton = document.createElement("a");
+                addToCartButton.href = "#";
+                addToCartButton.classList.add("btn", "btn-primary");
+                addToCartButton.textContent = "Add to cart";
+
+                cardBody.appendChild(cardTitle);
+                cardBody.appendChild(priceParagraph);
+                cardBody.appendChild(descriptionParagraph);
+                cardBody.appendChild(addToCartButton);
+
+                cardDiv.appendChild(cardImage);
+                cardDiv.appendChild(cardBody);
+
+                li.appendChild(cardDiv);
+
+                document.getElementById(elementId).appendChild(li);
+            });
+        })
+        .catch(error => console.error("Error fetching articles:", error));
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    fetchAndDisplayArticles(1, "book-products");
+    fetchAndDisplayArticles(2, "pc-products");
+});
