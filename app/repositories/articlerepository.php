@@ -52,7 +52,7 @@ class ArticleRepository extends Repository
     function create($article)
     {
         try {
-            $stmt = $this->connection->prepare("INSERT INTO article (category_id, name, description, image, price, discount, num_sales, amount, display) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $this->connection->prepare("INSERT INTO article (category_id, name, description, image, price, num_sales, amount, display) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
             $stmt->execute([
                 $article['category_id'],
@@ -60,7 +60,6 @@ class ArticleRepository extends Repository
                 $article['description'],
                 $article['image'],
                 $article['price'],
-                $article['discount'],
                 $article['num_sales'],
                 $article['amount'],
                 $article['display']
@@ -74,14 +73,13 @@ class ArticleRepository extends Repository
     public function update($article)
     {
         try {
-            $stmt = $this->connection->prepare("UPDATE article SET category_id = :category_id, name = :name, description = :description, image = :image, price = :price, discount = :discount, num_sales = :num_sales, amount = :amount, display = :display WHERE id = :id");
+            $stmt = $this->connection->prepare("UPDATE article SET category_id = :category_id, name = :name, description = :description, image = :image, price = :price, num_sales = :num_sales, amount = :amount, display = :display WHERE id = :id");
 
             $stmt->bindValue(':category_id', $article->getCategoryId());
             $stmt->bindValue(':name', $article->getName());
             $stmt->bindValue(':description', $article->getDescription());
             $stmt->bindValue(':image', $article->getImage());
             $stmt->bindValue(':price', $article->getPrice());
-            $stmt->bindValue(':discount', $article->getDiscount());
             $stmt->bindValue(':num_sales', $article->getNumSales());
             $stmt->bindValue(':amount', $article->getAmount());
             $stmt->bindValue(':display', $article->getDisplay());

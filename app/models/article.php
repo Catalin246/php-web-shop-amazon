@@ -26,7 +26,6 @@ class Article
         $this->setDescription($articleData['description'] ?? null);
         $this->setImage($articleData['image'] ?? null);
         $this->setPrice($articleData['price'] ?? 0.0);
-        $this->setDiscount($articleData['discount'] ?? 0.0);
         $this->setNumSales($articleData['num_sales'] ?? 0);
         $this->setAmount($articleData['amount'] ?? null);
         $this->setDisplay($articleData['display'] ?? null);
@@ -46,7 +45,6 @@ class Article
             'description' => $this->description,
             'image' => $this->image,
             'price' => $this->price,
-            'discount' => $this->discount,
             'num_sales' => $this->numSales,
             'amount' => $this->amount,
             'display' => $this->display,
@@ -193,30 +191,6 @@ class Article
     public function setPrice(float $price): self
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of discount.
-     *
-     * @return float
-     */
-    public function getDiscount(): float
-    {
-        return $this->discount;
-    }
-
-    /**
-     * Set the value of discount.
-     *
-     * @param float $discount
-     *
-     * @return self
-     */
-    public function setDiscount(float $discount): self
-    {
-        $this->discount = $discount;
 
         return $this;
     }
