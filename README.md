@@ -15,27 +15,21 @@ It contains a docker configuration with:
 2. Clone the project: https://github.com/Catalin246/php-web-shop-amazon
 3. Install npm
 
-In a terminal, run:
-
 `npm install`
 
 4. Install webpack
 
-In a terminal, run:
-
 `npm install -g webpack webpack-cli`
 
-5. Bundle the css and javascript
+5. Run the project
 
-In a terminal, run:
+`docker-compose up`
+
+6. Bundle the css and javascript
 
 `npm run watch`
 
-6. Run the project
-
-In a terminal, run:
-
-`docker-compose up`
+You are ready to explore the wewsite!
 
 NGINX will now serve files in the app/public folder. Visit localhost in your browser to check.
 PHPMyAdmin is accessible on localhost:8080
