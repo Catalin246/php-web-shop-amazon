@@ -139,9 +139,12 @@
                         <div class="offcanvas-header">
                             <h2 class="offcanvas-title">Your Order</h2>
                         </div>
-                        <div class="offcanvas-body">
-                            <!-- Content of the offcanvas body goes here -->
-                            ...
+                        <div id="cart" class="offcanvas-body">
+                            <div id="cart-items">
+                            </div>
+                            <div id="cart-total">
+                                Cart Total: $0
+                            </div>
                         </div>
                     </div>
                 </div>

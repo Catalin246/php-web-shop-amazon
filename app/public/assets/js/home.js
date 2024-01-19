@@ -46,6 +46,7 @@ function fetchAndDisplayArticles(categoryId, elementId) {
         .then(articles => {
             articles.data.forEach(article => {
                 const li = document.createElement("li");
+                li.id = article.id;
 
                 const cardDiv = document.createElement("div");
                 cardDiv.classList.add("card");
@@ -71,10 +72,10 @@ function fetchAndDisplayArticles(categoryId, elementId) {
                 descriptionParagraph.textContent = article.description;
 
                 const addToCartButton = document.createElement("a");
-                addToCartButton.href = "#";
                 addToCartButton.classList.add("btn", "btn-primary");
                 addToCartButton.textContent = "Add to cart";
                 addToCartButton.addEventListener("click", toggleOffcanvas);
+                addToCartButton.addEventListener("click", addArticleToCart);
 
                 cardBody.appendChild(cardTitle);
                 cardBody.appendChild(priceParagraph);
@@ -114,7 +115,7 @@ function toggleOffcanvas() {
 
     const isOpen = offcanvas.classList.contains('open');
 
-    offcanvas.style.display = isOpen ? 'block' : 'none';
+    offcanvas.style.display = 'block';
 }
 
 function closeOffcanvas() {
@@ -123,5 +124,77 @@ function closeOffcanvas() {
 
     offcanvas.style.display = 'none';
 }
+
+
+function fetchArticleById(articleId) {
+    return fetch(`api/article?id=${articleId}`)
+        .then(response => response.json())
+        .then(data => data.data)
+        .catch(error => {
+            console.error("Error fetching article:", error);
+            throw error;
+        });
+}
+
+shoppingCart = [];
+
+function addArticleToCart(event) {
+    const articleId = event.target.closest("li").id;
+
+    fetchArticleById(articleId)
+        .then(article => {
+            const cartItems = document.getElementById('cart-items');
+            shoppingCart.push(article);
+
+            const cartItem = document.createElement("div");
+            cartItem.classList.add("cart-item");
+
+            const itemInfo = document.createElement("div");
+            itemInfo.classList.add("item-info");
+
+            const itemImage = document.createElement("img");
+            itemImage.src = article.image;
+            itemImage.alt = "Product Image";
+            itemInfo.appendChild(itemImage);
+
+            const itemDetails = document.createElement("div");
+            itemDetails.innerHTML = `
+                <div class="item-name">${article.name}</div>
+                <div class="item-price">Price: $${article.price}</div>
+            `;
+            itemInfo.appendChild(itemDetails);
+
+            cartItem.appendChild(itemInfo);
+
+            const itemQuantity = document.createElement("div");
+            itemQuantity.classList.add("item-quantity");
+
+            const minusButton = document.createElement("button");
+            minusButton.innerHTML = `<i class="fas fa-minus"></i>`;
+            minusButton.addEventListener("click", () => updateQuantity(cartItem, article, -1));
+
+            const quantityValue = document.createElement("span");
+            quantityValue.textContent = "1";
+
+            const plusButton = document.createElement("button");
+            plusButton.innerHTML = `<i class="fas fa-plus"></i>`;
+            plusButton.addEventListener("click", () => updateQuantity(cartItem, article, 1));
+
+            itemQuantity.appendChild(minusButton);
+            itemQuantity.appendChild(quantityValue);
+            itemQuantity.appendChild(plusButton);
+
+            cartItem.appendChild(itemQuantity);
+
+            cartItems.appendChild(cartItem);
+        })
+        .catch(error => {
+            console.error("Error adding article to cart:", error);
+        });
+}
+
+
+
+
 
 
