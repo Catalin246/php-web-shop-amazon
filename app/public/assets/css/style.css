@@ -1180,3 +1180,19 @@ table {
     font-weight: bold;
     margin-top: 10px;
 }
+
+.remove-item-btn {
+    background-color: #ffffff;
+    padding: 7px 9px;
+    margin: 2px;
+    border: 1px solid #fff;
+}
+
+.remove-item-btn:hover {
+    border: 1px solid #ccc;
+}
+
+.fa-times {
+    color: #131a22;
+    font-size: 16px;
+}

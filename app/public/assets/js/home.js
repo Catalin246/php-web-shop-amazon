@@ -144,53 +144,93 @@ function addArticleToCart(event) {
     fetchArticleById(articleId)
         .then(article => {
             const cartItems = document.getElementById('cart-items');
-            shoppingCart.push(article);
 
-            const cartItem = document.createElement("div");
-            cartItem.classList.add("cart-item");
+            const existingCartItem = document.getElementById("item-" + article.id);
 
-            const itemInfo = document.createElement("div");
-            itemInfo.classList.add("item-info");
+            if (existingCartItem) {
+                updateQuantity(existingCartItem, article, 1);
+            } else {
+                shoppingCart.push(article);
 
-            const itemImage = document.createElement("img");
-            itemImage.src = article.image;
-            itemImage.alt = "Product Image";
-            itemInfo.appendChild(itemImage);
+                const cartItem = document.createElement("div");
+                cartItem.id = "item-" + article.id;
+                cartItem.classList.add("cart-item");
 
-            const itemDetails = document.createElement("div");
-            itemDetails.innerHTML = `
-                <div class="item-name">${article.name}</div>
-                <div class="item-price">Price: $${article.price}</div>
-            `;
-            itemInfo.appendChild(itemDetails);
+                const itemInfo = document.createElement("div");
+                itemInfo.classList.add("item-info");
 
-            cartItem.appendChild(itemInfo);
+                const itemImage = document.createElement("img");
+                itemImage.src = article.image;
+                itemImage.alt = "Product Image";
+                itemInfo.appendChild(itemImage);
 
-            const itemQuantity = document.createElement("div");
-            itemQuantity.classList.add("item-quantity");
+                const itemDetails = document.createElement("div");
+                itemDetails.innerHTML = `
+                    <div class="item-name">${article.name}</div>
+                    <div class="item-price">Price: $${article.price}</div>
+                `;
+                itemInfo.appendChild(itemDetails);
 
-            const minusButton = document.createElement("button");
-            minusButton.innerHTML = `<i class="fas fa-minus"></i>`;
-            minusButton.addEventListener("click", () => updateQuantity(cartItem, article, -1));
+                cartItem.appendChild(itemInfo);
 
-            const quantityValue = document.createElement("span");
-            quantityValue.textContent = "1";
+                const itemQuantity = document.createElement("div");
+                itemQuantity.classList.add("item-quantity");
 
-            const plusButton = document.createElement("button");
-            plusButton.innerHTML = `<i class="fas fa-plus"></i>`;
-            plusButton.addEventListener("click", () => updateQuantity(cartItem, article, 1));
+                const minusButton = document.createElement("button");
+                minusButton.innerHTML = `<i class="fas fa-minus"></i>`;
+                minusButton.addEventListener("click", () => updateQuantity(cartItem, article, -1));
 
-            itemQuantity.appendChild(minusButton);
-            itemQuantity.appendChild(quantityValue);
-            itemQuantity.appendChild(plusButton);
+                const quantityValue = document.createElement("span");
+                quantityValue.textContent = "1";
 
-            cartItem.appendChild(itemQuantity);
+                const plusButton = document.createElement("button");
+                plusButton.innerHTML = `<i class="fas fa-plus"></i>`;
+                plusButton.addEventListener("click", () => updateQuantity(cartItem, article, 1));
 
-            cartItems.appendChild(cartItem);
+                itemQuantity.appendChild(minusButton);
+                itemQuantity.appendChild(quantityValue);
+                itemQuantity.appendChild(plusButton);
+
+                cartItem.appendChild(itemQuantity);
+
+                const removeButton = document.createElement("button");
+                removeButton.classList.add("remove-item-btn");
+                removeButton.innerHTML = `<i class="fas fa-times"></i>`;
+                removeButton.addEventListener("click", () => removeCartItem(cartItem, article));
+
+                cartItem.appendChild(removeButton);
+
+                cartItems.appendChild(cartItem);
+            }
         })
         .catch(error => {
             console.error("Error adding article to cart:", error);
         });
+}
+
+function updateQuantity(cartItem, article, change) {
+    const quantityElement = cartItem.querySelector(".item-quantity span");
+    let currentQuantity = parseInt(quantityElement.textContent);
+    currentQuantity += change;
+    if (currentQuantity < 1) {
+        currentQuantity = 1;
+    }
+    quantityElement.textContent = currentQuantity;
+
+    updateItemTotal(cartItem, article, currentQuantity);
+    updateCartTotal();
+}
+
+function removeCartItem(cartItem, article) {
+    const index = shoppingCart.findIndex(item => item.id === article.id);
+    if (index !== -1) {
+        shoppingCart.splice(index, 1);
+    }
+
+    cartItem.remove();
+
+    // // Update the total after removing the item
+    // updateCartTotal();
 }
 
 
