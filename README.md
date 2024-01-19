@@ -1,6 +1,6 @@
 # php-web-shop-amazon
 
-This repository demonstrates how the MVC design pattern can be implemented using PHP.
+This repository demonstrates the implementation of the MVC design pattern using PHP. It includes a user page that allows customers to shop, similar to other commercial websites. The application's design is inspired by Amazon.com, although some elements may differ. Additionally, the application provides an admin page where administrators can manage stock and users. You can use the same login screen to acces both of them.
 
 It contains a docker configuration with:
 
@@ -15,23 +15,27 @@ It contains a docker configuration with:
 2. Clone the project
 3. Install npm
 
-```bash
-npm install
-```
+In a terminal, run:
+
+`npm install`
 
 4. Install webpack
 
-```bash
-npm install -g webpack webpack-cli
-```
+In a terminal, run:
 
-5. Start the project
+`npm install -g webpack webpack-cli`
+
+5. Bundle the css and javascript
 
 In a terminal, run:
 
-```bash
-docker-compose up
-```
+`npm run watch`
+
+6. Run the project
+
+In a terminal, run:
+
+`docker-compose up`
 
 NGINX will now serve files in the app/public folder. Visit localhost in your browser to check.
 PHPMyAdmin is accessible on localhost:8080
@@ -39,11 +43,9 @@ PHPMyAdmin is accessible on localhost:8080
 If you want to stop the containers, press Ctrl+C.
 Or run:
 
-```bash
-docker-compose down
-```
+`docker-compose down`
 
-## Credentials
+## Login credentials
 
 - Database:
 
@@ -59,3 +61,7 @@ docker-compose down
   - user:
     - username: catalin@example.com
     - password: password
+
+## Features provided
+
+## Additional features should be implemented to enhance the overall quality of the project.
