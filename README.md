@@ -12,7 +12,7 @@ It contains a docker configuration with:
 ## Installation
 
 1. Install Docker Desktop on Windows or Mac, or Docker Engine on Linux.
-2. Clone the project
+2. Clone the project: https://github.com/Catalin246/php-web-shop-amazon
 3. Install npm
 
 In a terminal, run:
