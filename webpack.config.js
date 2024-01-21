@@ -6,6 +6,8 @@ module.exports = {
         main: './app/public/assets/js/main.js',
         user: './app/public/assets/js/user.js',
         home: './app/public/assets/js/home.js',
+        article: './app/public/assets/js/article.js',
+        category: './app/public/assets/js/category.js',
         styles: [
             './app/public/assets/css/style.css',
             './app/public/assets/css/hdn-sign.css',
