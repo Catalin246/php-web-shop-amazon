@@ -74,3 +74,19 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => console.error('Error deleting article:', error));
     }
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('/api/category')
+        .then(response => response.json())
+        .then(data => {
+            const addCategorySelect = document.getElementById('addCategory');
+
+            data.data.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.id;
+                option.textContent = category.name;
+                addCategorySelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error fetching categories:', error));
+});
