@@ -6,6 +6,19 @@ class ArticleController
 
     private $articleService;
 
+    private $filters = [
+        'id' => FILTER_VALIDATE_INT,
+        'category_id' => FILTER_VALIDATE_INT,
+        'name' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'description' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'image' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'price' => FILTER_VALIDATE_FLOAT,
+        'discount' => FILTER_VALIDATE_FLOAT,
+        'num_sales' => FILTER_VALIDATE_INT,
+        'amount' => FILTER_VALIDATE_INT,
+        'display' => FILTER_VALIDATE_INT
+    ];
+
     function __construct()
     {
         $this->articleService = new ArticleService();
@@ -62,10 +75,16 @@ class ArticleController
         $jsonInput = file_get_contents('php://input');
         $data = json_decode($jsonInput, true);
 
-        if ($data) {
-            $this->articleService->create($data);
+        if ($data !== null) {
+            $sanitizedData = filter_var_array($data, $this->filters, false);
 
-            echo json_encode(['status' => 'success', 'message' => 'Article created successfully']);
+            if ($sanitizedData !== false && !in_array(false, $sanitizedData, true)) {
+                $this->articleService->create($sanitizedData);
+                echo json_encode(['status' => 'success', 'message' => 'Article created successfully']);
+            } else {
+                http_response_code(400);
+                echo json_encode(['status' => 'error', 'message' => 'Invalid input data']);
+            }
         } else {
             http_response_code(400);
             echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data']);
@@ -83,22 +102,34 @@ class ArticleController
             $existingArticle = $this->articleService->getById($articleId);
 
             if ($existingArticle) {
+                if ($data !== null) {
+                    $sanitizedData = filter_var_array($data, $this->filters, false);
 
-                $updatedArticle = new Article($data);
-                $updatedArticle->setId($articleId);
+                    if ($sanitizedData !== false && !in_array(false, $sanitizedData, true)) {
+                        $updatedArticle = new Article($sanitizedData);
+                        $updatedArticle->setId($articleId);
 
-                $this->articleService->update($updatedArticle);
+                        $this->articleService->update($updatedArticle);
 
-                echo json_encode(['status' => 'success', 'message' => 'Category updated successfully', 'category' => $updatedArticle->toArray()]);
+                        echo json_encode(['status' => 'success', 'message' => 'Article updated successfully', 'article' => $updatedArticle->toArray()]);
+                    } else {
+                        http_response_code(400);
+                        echo json_encode(['status' => 'error', 'message' => 'Invalid input data']);
+                    }
+                } else {
+                    http_response_code(400);
+                    echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data']);
+                }
             } else {
                 http_response_code(404);
-                echo json_encode(['status' => 'error', 'message' => 'Category not found']);
+                echo json_encode(['status' => 'error', 'message' => 'Article not found']);
             }
         } else {
             http_response_code(400);
-            echo json_encode(['status' => 'error', 'message' => 'Missing category ID']);
+            echo json_encode(['status' => 'error', 'message' => 'Missing article ID']);
         }
     }
+
 
     public function delete()
     {
