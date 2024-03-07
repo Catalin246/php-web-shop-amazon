@@ -5,6 +5,15 @@ class CategoryController
 {
     private $categoryService;
 
+    private $filters = [
+        'id' => FILTER_VALIDATE_INT,
+        'name' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'description' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'display' => FILTER_VALIDATE_BOOLEAN,
+        'image_url' => FILTER_SANITIZE_URL
+    ];
+
+
     public function __construct()
     {
         $this->categoryService = new CategoryService();
@@ -52,12 +61,19 @@ class CategoryController
         $jsonInput = file_get_contents('php://input');
         $data = json_decode($jsonInput, true);
 
-        if ($data) {
-            $category = new Category($data);
+        if ($data !== null) {
+            $sanitizedData = filter_var_array($data, $this->filters, false);
 
-            $this->categoryService->create($category);
+            if ($sanitizedData !== false && !in_array(false, $sanitizedData, true)) {
+                $category = new Category($sanitizedData);
 
-            echo json_encode(['status' => 'success', 'message' => 'Category created successfully']);
+                $this->categoryService->create($category);
+
+                echo json_encode(['status' => 'success', 'message' => 'Category created successfully']);
+            } else {
+                http_response_code(400);
+                echo json_encode(['status' => 'error', 'message' => 'Invalid input data']);
+            }
         } else {
             http_response_code(400);
             echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data']);
@@ -75,12 +91,24 @@ class CategoryController
             $existingCategory = $this->categoryService->getById($categoryId);
 
             if ($existingCategory) {
-                $updatedCategory = new Category($data);
-                $updatedCategory->setId($categoryId);
+                if ($data !== null) {
+                    $sanitizedData = filter_var_array($data, $this->filters, false);
 
-                $this->categoryService->update($updatedCategory);
+                    if ($sanitizedData !== false && !in_array(false, $sanitizedData, true)) {
+                        $updatedCategory = new Category($sanitizedData);
+                        $updatedCategory->setId($categoryId);
 
-                echo json_encode(['status' => 'success', 'message' => 'Category updated successfully', 'category' => $updatedCategory->toArray()]);
+                        $this->categoryService->update($updatedCategory);
+
+                        echo json_encode(['status' => 'success', 'message' => 'Category updated successfully', 'category' => $updatedCategory->toArray()]);
+                    } else {
+                        http_response_code(400);
+                        echo json_encode(['status' => 'error', 'message' => 'Invalid input data']);
+                    }
+                } else {
+                    http_response_code(400);
+                    echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data']);
+                }
             } else {
                 http_response_code(404);
                 echo json_encode(['status' => 'error', 'message' => 'Category not found']);
@@ -90,7 +118,6 @@ class CategoryController
             echo json_encode(['status' => 'error', 'message' => 'Missing category ID']);
         }
     }
-
 
     public function delete()
     {

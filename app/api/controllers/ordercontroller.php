@@ -6,6 +6,22 @@ class OrderController
 
     private $orderService;
 
+    private $filters = [
+        'id' => FILTER_VALIDATE_INT,
+        'delivered' => FILTER_VALIDATE_BOOLEAN,
+        'paid' => FILTER_VALIDATE_BOOLEAN,
+        'user_id' => FILTER_VALIDATE_INT,
+        'items' => [
+            'filter' => FILTER_CALLBACK,
+            'options' => [
+                'options' => function ($itemData) {
+                        return new Item($itemData);
+                    }
+            ]
+        ]
+    ];
+
+
     function __construct()
     {
         $this->orderService = new OrderService();

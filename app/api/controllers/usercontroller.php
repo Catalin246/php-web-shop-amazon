@@ -6,6 +6,15 @@ class UserController
 
     private $userService;
 
+    private $filters = [
+        'email' => FILTER_SANITIZE_EMAIL,
+        'name' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'phone' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'user_role_id' => FILTER_VALIDATE_INT,
+        'password' => FILTER_SANITIZE_FULL_SPECIAL_CHARS
+    ];
+
+
     function __construct()
     {
         $this->userService = new UserService();
