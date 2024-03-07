@@ -69,12 +69,19 @@ class OrderController
         $jsonInput = file_get_contents('php://input');
         $data = json_decode($jsonInput, true);
 
-        if ($data) {
-            $order = new Order($data);
+        if ($data !== null) {
+            $sanitizedData = filter_var_array($data, $this->filters, false);
 
-            $this->orderService->create($order);
+            if ($sanitizedData !== false && !in_array(false, $sanitizedData, true)) {
+                $order = new Order($sanitizedData);
 
-            echo json_encode(['status' => 'success', 'message' => 'Order created successfully']);
+                $this->orderService->create($order);
+
+                echo json_encode(['status' => 'success', 'message' => 'Order created successfully']);
+            } else {
+                http_response_code(400);
+                echo json_encode(['status' => 'error', 'message' => 'Invalid input data']);
+            }
         } else {
             http_response_code(400);
             echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data']);
@@ -92,12 +99,24 @@ class OrderController
             $existingOrder = $this->orderService->getById($orderId);
 
             if ($existingOrder) {
-                $updatedOrder = new Order($data);
-                $updatedOrder->setId($orderId);
+                if ($data !== null) {
+                    $sanitizedData = filter_var_array($data, $this->filters, false);
 
-                $this->orderService->update($updatedOrder);
+                    if ($sanitizedData !== false && !in_array(false, $sanitizedData, true)) {
+                        $updatedOrder = new Order($sanitizedData);
+                        $updatedOrder->setId($orderId);
 
-                echo json_encode(['status' => 'success', 'message' => 'Order updated successfully', 'order' => $updatedOrder->toArray()]);
+                        $this->orderService->update($updatedOrder);
+
+                        echo json_encode(['status' => 'success', 'message' => 'Order updated successfully', 'order' => $updatedOrder->toArray()]);
+                    } else {
+                        http_response_code(400);
+                        echo json_encode(['status' => 'error', 'message' => 'Invalid input data']);
+                    }
+                } else {
+                    http_response_code(400);
+                    echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data']);
+                }
             } else {
                 http_response_code(404);
                 echo json_encode(['status' => 'error', 'message' => 'Order not found']);

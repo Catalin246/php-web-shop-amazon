@@ -62,12 +62,19 @@ class UserController
         $jsonInput = file_get_contents('php://input');
         $data = json_decode($jsonInput, true);
 
-        if ($data) {
-            $user = new User($data);
+        if ($data !== null) {
+            $sanitizedData = filter_var_array($data, $this->filters, false);
 
-            $this->userService->create($user);
+            if ($sanitizedData !== false && !in_array(false, $sanitizedData, true)) {
+                $user = new User($sanitizedData);
 
-            echo json_encode(['status' => 'success', 'message' => 'User created successfully']);
+                $this->userService->create($user);
+
+                echo json_encode(['status' => 'success', 'message' => 'User created successfully']);
+            } else {
+                http_response_code(400);
+                echo json_encode(['status' => 'error', 'message' => 'Invalid input data']);
+            }
         } else {
             http_response_code(400);
             echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data']);
@@ -85,12 +92,24 @@ class UserController
             $existingUser = $this->userService->getById($userId);
 
             if ($existingUser) {
-                $updatedUser = new User($data);
-                $updatedUser->setId($userId);
+                if ($data !== null) {
+                    $sanitizedData = filter_var_array($data, $this->filters, false);
 
-                $this->userService->update($updatedUser);
+                    if ($sanitizedData !== false && !in_array(false, $sanitizedData, true)) {
+                        $updatedUser = new User($sanitizedData);
+                        $updatedUser->setId($userId);
 
-                echo json_encode(['status' => 'success', 'message' => 'User updated successfully', 'user' => $updatedUser->toArray()]);
+                        $this->userService->update($updatedUser);
+
+                        echo json_encode(['status' => 'success', 'message' => 'User updated successfully', 'user' => $updatedUser->toArray()]);
+                    } else {
+                        http_response_code(400);
+                        echo json_encode(['status' => 'error', 'message' => 'Invalid input data']);
+                    }
+                } else {
+                    http_response_code(400);
+                    echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data']);
+                }
             } else {
                 http_response_code(404);
                 echo json_encode(['status' => 'error', 'message' => 'User not found']);
