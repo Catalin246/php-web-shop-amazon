@@ -7,20 +7,10 @@ class OrderController
     private $orderService;
 
     private $filters = [
-        'id' => FILTER_VALIDATE_INT,
         'delivered' => FILTER_VALIDATE_BOOLEAN,
         'paid' => FILTER_VALIDATE_BOOLEAN,
         'user_id' => FILTER_VALIDATE_INT,
-        'items' => [
-            'filter' => FILTER_CALLBACK,
-            'options' => [
-                'options' => function ($itemData) {
-                        return new Item($itemData);
-                    }
-            ]
-        ]
     ];
-
 
     function __construct()
     {
@@ -72,7 +62,7 @@ class OrderController
         if ($data !== null) {
             $sanitizedData = filter_var_array($data, $this->filters, false);
 
-            if ($sanitizedData !== false && !in_array(false, $sanitizedData, true)) {
+            if ($sanitizedData !== false) {
                 $order = new Order($sanitizedData);
 
                 $this->orderService->create($order);
@@ -126,6 +116,7 @@ class OrderController
             echo json_encode(['status' => 'error', 'message' => 'Missing Order ID']);
         }
     }
+
 
     public function delete()
     {
