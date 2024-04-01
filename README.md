@@ -67,13 +67,13 @@ Or run:
 7. Save hashed passwords on the DB;
 8. The app is Bootstrap as well as CSS for styling;
 9. The app stores the user into the session after log-in;
+10. Sanitize the data in the data layer; Prevent SQL injection;
 
 ## Additional features should be implemented to enhance the overall quality of the project.
 
 1. Forgot password functionality;
 2. Place an order and proceed to payment;
 3. Implement pagination when displaying articles or categories;
-4. Sanitize the data in the data layer; Prevent SQL injection;
-5. Implement the CRUD operation for rest of the objects;
-6. Check if the user is loogen before place an order;
-7. Use JWT tokens to acces the API;
+4. Implement the CRUD operation for rest of the objects;
+5. Check if the user is loogen before place an order;
+6. Use JWT tokens to acces the API;
