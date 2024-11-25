@@ -21,9 +21,9 @@ It contains a docker configuration with:
 
 `npm install -g webpack webpack-cli`
 
-5. Run the project
+5. Run the project and build the project
 
-`docker-compose up`
+`docker-compose up --build`
 
 6. Bundle the css and javascript
 
