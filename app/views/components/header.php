@@ -140,8 +140,9 @@
                             <div id="cart-items">
                             </div>
                             <div id="cart-total">
-                                Cart Total: $0
+                                Your cart is empty. Start shopping now!
                             </div>
+
                         </div>
                     </div>
                 </div>

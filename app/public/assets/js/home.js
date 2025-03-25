@@ -48,7 +48,7 @@ function fetchAndDisplayArticles(categoryId, elementId) {
                 const li = document.createElement("li");
                 li.id = article.id;
 
-                const cardDiv = document.createElement("div");
+                const cardDiv = document.createElement("a");
                 cardDiv.classList.add("card");
 
                 const cardImage = document.createElement("img");
@@ -84,6 +84,9 @@ function fetchAndDisplayArticles(categoryId, elementId) {
 
                 cardDiv.appendChild(cardImage);
                 cardDiv.appendChild(cardBody);
+
+                cardDiv.addEventListener("click", toggleOffcanvas);
+                cardDiv.addEventListener("click", addArticleToCart);
 
                 li.appendChild(cardDiv);
 
@@ -167,7 +170,7 @@ function addArticleToCart(event) {
                 const itemDetails = document.createElement("div");
                 itemDetails.innerHTML = `
                     <div class="item-name">${article.name}</div>
-                    <div class="item-price">Price: $${article.price}</div>
+                    <div class="item-price">Price: ${article.price} €</div>
                 `;
                 itemInfo.appendChild(itemDetails);
 
@@ -201,6 +204,9 @@ function addArticleToCart(event) {
                 cartItem.appendChild(removeButton);
 
                 cartItems.appendChild(cartItem);
+
+                // Update the total after removing the item
+                updateCartTotal();
             }
         })
         .catch(error => {
@@ -213,7 +219,7 @@ function updateQuantity(cartItem, article, change) {
     let currentQuantity = parseInt(quantityElement.textContent);
     currentQuantity += change;
     if (currentQuantity < 1) {
-        currentQuantity = 1;
+        removeCartItem(cartItem, article)
     }
     quantityElement.textContent = currentQuantity;
 
@@ -229,9 +235,38 @@ function removeCartItem(cartItem, article) {
 
     cartItem.remove();
 
-    // // Update the total after removing the item
-    // updateCartTotal();
+    // Update the total after removing the item
+    updateCartTotal();
 }
+
+function updateCartTotal() {
+    let cartTotalElement = document.getElementById("cart-total");
+    let total = shoppingCart.reduce((sum, item) => {
+        let quantity = parseInt(document.getElementById("item-" + item.id).querySelector(".item-quantity span").textContent);
+        return sum + item.price * quantity;
+    }, 0).toFixed(2);
+
+    if (total == 0) {
+        cartTotalElement.innerHTML = `<div class="empty-cart-message">Your cart is empty. Start shopping now!</div>`;
+    } else {
+        cartTotalElement.textContent = `Cart Total: ${total} €`;
+    }
+}
+
+function updateItemTotal(cartItem, article, quantity) {
+    let itemPrice = parseFloat(article.price);
+    let totalPrice = (itemPrice * quantity).toFixed(2);
+
+    let priceParagraph = cartItem.querySelector(".item-info .item-price");
+    
+    if (priceParagraph) {
+        priceParagraph.textContent = `Price: ${totalPrice} €`;
+    }
+
+    updateCartTotal();
+}
+
+
 
 
 
