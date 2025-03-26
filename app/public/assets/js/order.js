@@ -11,26 +11,26 @@ export async function fetchOrderData() {
 
     const tableBody = document.querySelector('#orderTable tbody');
 
-    try {
-        const response = await fetch('/api/order');
-        const data = await response.json();
+    if (tableBody) {
+        try {
+            const response = await fetch('/api/order');
+            const data = await response.json();
 
-        const promises = data.data.map(async (order) => {
-            const user = await fetchUserData(order.user_id);
-            const row = tableBody.insertRow();
-            row.innerHTML = `
-                <tr data-orderid="${order.id}">
+            const promises = data.data.map(async (order) => {
+                const user = await fetchUserData(order.user_id);
+                const row = tableBody.insertRow(); 
+                row.innerHTML = `
                     <td>${order.id}</td>
                     <td>${user.name}</td>
                     <td>${delivered[order.delivered]}</td>
                     <td>${paid[order.paid]}</td>
-                </tr>
-            `;
-        });
+                `;
+            });
 
-        await Promise.all(promises);
-    } catch (error) {
-        console.error('Error fetching data:', error);
+            await Promise.all(promises);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
     }
 }
 
