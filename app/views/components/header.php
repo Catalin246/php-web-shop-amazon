@@ -13,6 +13,19 @@
     <title>Web Shop Amazon</title>
 </head>
 
+<?php
+    $url = $_SERVER['REQUEST_URI']; // Get the current URL
+
+    $imgSrcFlag = "assets/images/usflag.jpg";
+    $imgSrcLogo = "assets/images/logo.png";
+
+    // Check if "/home" is in the URL
+    if (strpos($url, '/home') !== false) {
+        $imgSrcFlag = "/" . $imgSrcFlag;
+        $imgSrcLogo = "/" . $imgSrcLogo;
+    }
+?>
+
 <body>
     <div class="sidebar">
         <div class="hdn-head">
@@ -85,7 +98,7 @@
     <header>
         <div class="first">
             <div class="flex logo">
-                <a href="/"><img src="assets/images/logo.png" alt=""></a>
+                <a href="/"><img src="<?php echo htmlspecialchars($imgSrcLogo); ?>" alt=""></a>
                 <div class="map flex">
                     <i class="fas fa-map-marker"></i>
                     <div>
@@ -104,7 +117,7 @@
             </div>
             <div class="flex right">
                 <div class="flex lang">
-                    <img src="assets/images/usflag.jpg" alt="">
+                    <img src="<?php echo htmlspecialchars($imgSrcFlag); ?>" alt="">
                     <span>EN</span>
                     <i class="fas fa-caret-down"></i>
                 </div>

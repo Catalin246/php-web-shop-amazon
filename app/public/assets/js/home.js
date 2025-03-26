@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', function () {
         imgElement.alt = category.name;
         image.appendChild(imgElement);
 
-        const seeMoreLink = document.createElement('a');
-        seeMoreLink.href = category.link;
-        seeMoreLink.textContent = 'See More';
+        const link = document.createElement('a');
+        link.href = `/home/category`;
+        link.textContent = 'See More';
 
         categoryBox.appendChild(title);
         categoryBox.appendChild(image);
-        categoryBox.appendChild(seeMoreLink);
+        categoryBox.appendChild(link);
 
         container.appendChild(categoryBox);
     }

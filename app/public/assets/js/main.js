@@ -1,4 +1,4 @@
-import { fetchOrderData } from './order.js';
+import { fetchOrderData } from './order.js'; 
 
 document.addEventListener('DOMContentLoaded', function () {
     fetchOrderData();
@@ -98,4 +98,3 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.toggle("stop-scroll");
     })
 });
-
