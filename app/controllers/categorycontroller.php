@@ -12,6 +12,11 @@ class CategoryController
         $this->checkUserRole('/../views/category/index.php');
     }
 
+    public function page()
+    {
+        require __DIR__ . '/../views/category/page.php';
+    }
+
     public function add()
     {
         $this->checkUserRole('/../views/category/add.php');
