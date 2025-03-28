@@ -254,10 +254,25 @@ function updateCartTotal() {
         return sum + item.price * quantity;
     }, 0).toFixed(2);
 
+    // Clear previous content
+    cartTotalElement.innerHTML = "";
+
     if (total == 0) {
         cartTotalElement.innerHTML = `<div class="empty-cart-message">Your cart is empty. Start shopping now!</div>`;
+        
+        // Remove the checkout button if total is 0
+        let checkoutBtn = document.getElementById("checkout-btn");
+        if (checkoutBtn) {
+            checkoutBtn.style.display = 'none'; // Hides the button
+        }
     } else {
-        cartTotalElement.textContent = `Cart Total: ${total} €`;
+        cartTotalElement.innerHTML = `Cart Total: ${total} €`;
+
+        // Ensure the checkout button is visible if total > 0
+        let checkoutBtn = document.getElementById("checkout-btn");
+        if (checkoutBtn) {
+            checkoutBtn.style.display = 'block'; // Shows the button
+        }
     }
 }
 
