@@ -81,7 +81,7 @@ Or run:
 To Do: 
 
 - solve the errors when you are logged in as admin
-- payment process (payment button in shopping cart, payment page)
-- display the items based on the category on the category page
-- redirect to the category page also when the user press the category image on the home page
-
+- solve the issue related to the css (tailwibd)
+- home page: redirect to paymey page
+- category page: display the items based on the category
+- payment page
