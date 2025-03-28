@@ -16,28 +16,36 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error fetching category data:', error));
 
     function createCategoryElement(category, container) {
+        const link = document.createElement('a');
+        link.href = `/home/category`;
+        link.className = 'category-link'; 
+        link.style.textDecoration = 'none'; 
+    
         const categoryBox = document.createElement('div');
         categoryBox.className = 'box box-c';
-
+    
         const title = document.createElement('h3');
         title.textContent = category.description;
-
+    
         const image = document.createElement('div');
         const imgElement = document.createElement('img');
         imgElement.src = category.image_url;
         imgElement.alt = category.name;
         image.appendChild(imgElement);
-
-        const link = document.createElement('a');
-        link.href = `/home/category`;
-        link.textContent = 'See More';
-
+    
         categoryBox.appendChild(title);
         categoryBox.appendChild(image);
-        categoryBox.appendChild(link);
 
-        container.appendChild(categoryBox);
-    }
+        const seeMoreButton = document.createElement('a');
+        seeMoreButton.href = `/home/category`;
+        seeMoreButton.textContent = 'See More';
+        seeMoreButton.className = 'see-more-btn'; 
+
+        categoryBox.appendChild(seeMoreButton)
+    
+        link.appendChild(categoryBox);
+        container.appendChild(link);
+    }        
 });
 
 function fetchAndDisplayArticles(categoryId, elementId) {

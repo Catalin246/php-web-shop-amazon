@@ -79,8 +79,9 @@ Or run:
 6. Use JWT tokens to acces the API;
 
 To Do: 
-- solve the error on order.js 37 (logged in as normal user or not logged in)
+
 - solve the errors when you are logged in as admin
-- create a category page (do not create a page for each item; it is too much)
 - payment process (payment button in shopping cart, payment page)
+- display the items based on the category on the category page
+- redirect to the category page also when the user press the category image on the home page
 
