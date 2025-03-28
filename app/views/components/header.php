@@ -157,7 +157,7 @@
                             <div id="cart-total">
                                 Your cart is empty. Start shopping now!
                             </div>
-
+                            <button class="button" id="checkout-btn" type="button" onclick="closeOffcanvas()">Procees to Checkout</button>
                         </div>
                     </div>
                 </div>

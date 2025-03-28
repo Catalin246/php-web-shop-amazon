@@ -1117,6 +1117,19 @@ table {
     background-color: #fdae99;
 }
 
+#checkout-btn {
+    background-color: #007bff;
+    color: #131a22;
+    padding: 10px 25px;
+    margin: 20px 0px 20px 0px;
+    border: 0;
+    border-radius: 5px;
+}
+
+#checkout-btn:hover {
+    background-color: #0056b3;
+}
+
 #shoppingCart li span {
     color: #131a22;
 }
