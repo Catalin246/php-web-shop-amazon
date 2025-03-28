@@ -1201,6 +1201,11 @@ table {
     color: #131a22;
     font-size: 16px;
 }
+
+.margin-right {
+    border-right: 4px solid white; /* Adds a soft, light gray border */
+    padding-right: 20px;
+}
 /*!**************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./app/public/assets/css/hdn-sign.css ***!
   \**************************************************************************************/
