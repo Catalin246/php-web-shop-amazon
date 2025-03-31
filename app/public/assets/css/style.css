@@ -373,7 +373,6 @@ i {
 .image-box {
     display: flex;
     position: absolute;
-    animation: carousel 15s alternate infinite;
 }
 
 @keyframes carousel {

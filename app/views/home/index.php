@@ -15,16 +15,7 @@ include __DIR__ . '/../components/header.php';
         <div class="slider">
             <div class="image-box">
                 <div class="slide">
-                    <img src="assets/images/si1.jpg" alt="">
-                </div>
-                <div class="slide">
-                    <img src="assets/images/si2.jpg" alt="">
-                </div>
-                <div class="slide">
                     <img src="assets/images/si3.jpg" alt="">
-                </div>
-                <div class="slide">
-                    <img src="assets/images/si4.jpg" alt="">
                 </div>
             </div>
         </div>
