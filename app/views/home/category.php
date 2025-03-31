@@ -3,7 +3,9 @@ include __DIR__ . '/../components/header.php';
 ?>
 
 <div class="flex">
-    TO DO
+    <div class="text-blue-300">
+        TO DO
+    </div>
     <!-- Sidebar Filter Section -->
     <!-- <div class=" margin-right"> -->
         <!-- <h2>Filter By</h2> -->

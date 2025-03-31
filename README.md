@@ -81,10 +81,8 @@ Or run:
 To Do: 
 
 - solve the errors when you are logged in as admin
-- solve the issue related to the css (tailwibd)
 - home page: redirect to paymey page
 - category page: display the items based on the category
 - payment page
-
 
 - export the datbase
