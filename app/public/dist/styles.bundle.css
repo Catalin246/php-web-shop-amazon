@@ -581,7 +581,14 @@ i {
     margin-right: 10px;
     margin-bottom: 15px;
     cursor: pointer;
+    width: 200px;
+    transition: transform 0.3s ease-in-out;
 }
+
+.product-slide li:hover {
+    transform: scale(1.05); 
+}
+
 
 .l-btn,
 .r-btn {
@@ -1218,6 +1225,13 @@ table {
     border-right: 4px solid white; /* Adds a soft, light gray border */
     padding-right: 20px;
 }
+
+.card-img-top {
+    width: 200px;
+    height: 150px;
+    object-fit: cover; 
+}
+
 /*!**************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./app/public/assets/css/hdn-sign.css ***!
   \**************************************************************************************/
