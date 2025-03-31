@@ -4,7 +4,7 @@ include __DIR__ . '/../components/admin-header.php';
 
 <script src="../dist/user.bundle.js"></script>
 
-<div class="container mt-5 d-flex justify-content-center">
+<div class="custom-container mt-5 d-flex justify-content-center">
     <div class="col-md-6">
         <a href="/user"><button type="button" class="m-2 my-3 px-4 btn btn-danger">Back</button></a>
 

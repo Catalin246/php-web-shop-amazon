@@ -2,7 +2,7 @@
 include __DIR__ . '/../components/admin-header.php';
 ?>
 
-<div class="container p-5">
+<div class="custom-container p-5">
     <div class="row">
         <div class="col-md-6 p-3">
             <div class="card">

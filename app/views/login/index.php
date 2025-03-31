@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="container signin">
+    <div class="custom-container signin">
         <div class="row d-flex justify-content-center">
             <a href="/"><img class="small-logo" src="../assets/images/amazon-logo.png" alt=""></a>
         </div>

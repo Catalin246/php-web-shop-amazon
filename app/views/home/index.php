@@ -6,8 +6,8 @@ include __DIR__ . '/../components/header.php';
 ?>
 
 <section class="sec-1">
-    <div class="container">
-        <div class="container-1">
+    <div class="custom-container">
+        <div class="custom-container-1">
             <div class="product-comp" id="categoryContainer">
 
             </div>

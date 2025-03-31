@@ -362,7 +362,7 @@ i {
     height: 100%;
 }
 
-.container {
+.custom-container {
     position: relative;
     width: 100%;
     height: auto;
@@ -415,7 +415,7 @@ i {
     }
 }
 
-.container-1 {
+.custom-container-1 {
     position: absolute;
     z-index: 1;
     top: 360px;
@@ -428,13 +428,13 @@ i {
     background: linear-gradient(to bottom, transparent, #eaeded 30%);
 }
 
-.container-1 .para {
+.custom-container-1 .para {
     background-color: rgb(238, 234, 234);
     width: 100%;
     text-align: center;
 }
 
-.container-1 div:first-child p {
+.custom-container-1 div:first-child p {
     font-size: 14px;
     padding: 10px 0;
 }
@@ -1022,7 +1022,7 @@ table {
 
 /* Error pages */
 
-.error-container {
+.error-custom-container {
     text-align: center;
 }
 

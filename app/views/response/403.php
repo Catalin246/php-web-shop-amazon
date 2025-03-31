@@ -14,7 +14,7 @@
 </head>
 
 <body class="bg-secondary text-white py-5">
-    <div class="container py-5">
+    <div class="custom-container py-5">
         <div class="row">
             <div class="col-md-2 text-center">
                 <p><i class="fa fa-exclamation-triangle fa-5x"></i><br />Status Code: 403</p>

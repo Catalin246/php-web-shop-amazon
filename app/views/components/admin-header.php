@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
-    <div class="admin-nav container-fluid px-5 py-3 d-flex justify-content-center">
+    <div class="admin-nav custom-container-fluid px-5 py-3 d-flex justify-content-center">
         <div class="row">
             <div class="margin admin-logo col-2 py-2">
                 <a class="p-1 d-flex align-items-center justify-content-center" href="/admin"><img
