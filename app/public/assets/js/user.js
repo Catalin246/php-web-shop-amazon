@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <td>${user.name}</td>
                     <td>${user.phone}</td>
                     <td>${userRoles[user.user_role_id]}</td>
-                    <td class="d-flex justify-content-center">
+                    <td class="d-flex-custom justify-content-center">
                         <a href="/user/edit?id=${user.id}"><button update-userid="${user.id} type="button" class="btn btn-warning btn-sm mx-2">Edit</button></a>
                         <button delete-userid="${user.id}" type="button" class="btn btn-danger btn-sm mx-2">Delete</button>
                     </td>

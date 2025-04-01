@@ -5,16 +5,16 @@ include __DIR__ . '/../components/admin-header.php';
 <script src="../dist/user.bundle.js"></script>
 
 <div class="custom-container p-5">
-    <div class="row d-flex justify-content-center">
-        <div class="col-5 py-4 d-flex justify-content-start">
+    <div class="row d-flex-custom justify-content-center">
+        <div class="col-5 py-4 d-flex-custom justify-content-start">
             <a href="/admin"><button type="button" class="btn btn-danger btn-sm">Back</button></a>
         </div>
-        <div class="col-5 py-4 d-flex justify-content-end">
+        <div class="col-5 py-4 d-flex-custom justify-content-end">
             <a href="/user/add"><button type="button" class="btn btn-primary btn-sm">Add
                     User</button></a>
         </div>
     </div>
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex-custom justify-content-center">
         <div class="col-10">
             <table class="table table-bordered" id="userTable">
                 <thead>

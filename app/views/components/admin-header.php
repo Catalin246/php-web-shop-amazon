@@ -15,28 +15,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
-    <div class="admin-nav custom-container-fluid px-5 py-3 d-flex justify-content-center">
+    <div class="admin-nav custom-container-fluid px-5 py-3 d-flex-custom justify-content-center">
         <div class="row">
             <div class="margin admin-logo col-2 py-2">
-                <a class="p-1 d-flex align-items-center justify-content-center" href="/admin"><img
+                <a class="p-1 d-flex-custom align-items-center justify-content-center" href="/admin"><img
                         src="../assets/images/logo.png" alt=""></a>
             </div>
-            <div class="col-8 d-flex align-items-center justify-content-center">
-                <div class="all p-2 d-flex align-items-center justify-content-center">
+            <div class="col-8 d-flex-custom align-items-center justify-content-center">
+                <div class="all p-2 d-flex-custom align-items-center justify-content-center">
                     <span class="px-2">All</span>
                     <i class="fas fa-caret-down"></i>
                 </div>
                 <input class="search-text p-2 px-5" type=" text">
-                <div class="search p-2 d-flex align-items-center justify-content-center">
+                <div class="search p-2 d-flex-custom align-items-center justify-content-center">
                     <i class="fas fa-search"></i>
                 </div>
             </div>
-            <div class="margin col-1 py-2 d-flex align-items-center justify-content-center">
+            <div class="margin col-1 py-2 d-flex-custom align-items-center justify-content-center">
                 <img id="language" src="../assets/images/usflag.jpg" alt="">
                 <span class="p-2">EN</span>
                 <i class="fas fa-caret-down"></i>
             </div>
-            <div class="margin col-1 py-2 d-flex align-items-center justify-content-center">
+            <div class="margin col-1 py-2 d-flex-custom align-items-center justify-content-center">
                 <a href="/login/logout">Log out</a>
             </div>
         </div>

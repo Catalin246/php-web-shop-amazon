@@ -37,12 +37,12 @@ body {
     justify-content: space-between;
 }
 
-.flex {
+.flex-custom {
     display: flex;
     justify-content: center;
 }
 
-.flex span,
+.flex-custom span,
 i {
     color: white;
 }
@@ -190,7 +190,7 @@ i {
     font-weight: bold;
 }
 
-.flex .ac span {
+.flex-custom .ac span {
     font-size: 15px;
     margin-right: 4px;
     font-weight: bold;
@@ -1069,7 +1069,7 @@ table {
 
 /* Offcanvas */
 
-.flex {
+.flex-custom {
     display: flex;
 }
 

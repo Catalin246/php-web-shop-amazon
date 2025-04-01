@@ -99,9 +99,9 @@
     <div class="black"></div>
     <header>
         <div class="first">
-            <div class="flex logo">
+            <div class="flex-custom logo">
                 <a href="/"><img src="<?php echo htmlspecialchars($imgSrcLogo); ?>" alt=""></a>
-                <div class="map flex">
+                <div class="map flex-custom">
                     <i class="fas fa-map-marker"></i>
                     <div>
                         <span>Deliver to</span>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex input">
+            <div class="flex-custom input">
                 <div>
                     <span>All</span>
                     <i class="fas fa-caret-down"></i>
@@ -117,8 +117,8 @@
                 <input type="text">
                 <i class="fas fa-search"></i>
             </div>
-            <div class="flex right">
-                <div class="flex lang">
+            <div class="flex-custom right">
+                <div class="flex-custom lang">
                     <img src="<?php echo htmlspecialchars($imgSrcFlag); ?>" alt="">
                     <span>EN</span>
                     <i class="fas fa-caret-down"></i>
@@ -131,7 +131,7 @@
                             echo 'Hello, Sign in';
                         } ?>
                     </span>
-                    <div class="flex ac">
+                    <div class="flex-custom ac">
                         <span>Accounts & Lists</span>
                         <i class="fas fa-caret-down"></i>
                     </div>
@@ -140,7 +140,7 @@
                     <span>Returns</span>
                     <span>& Orders</span>
                 </div>
-                <div class="flex cart">
+                <div class="flex-custom cart">
                     <button class="button" id="toggle-btn" type="button" onclick="toggleOffcanvas()"><i
                             class="fas fa-shopping-cart"></i>
                         <span class="ca">Cart</span></button>
