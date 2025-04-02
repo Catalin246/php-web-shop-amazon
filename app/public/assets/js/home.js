@@ -265,7 +265,7 @@ function saveCartToStorage() {
 }
 
 // Function to add article to the cart
-function addArticleToCart(event) {
+export function addArticleToCart(event) {
     const articleId = event.target.closest("li").id;
 
     fetchArticleById(articleId)

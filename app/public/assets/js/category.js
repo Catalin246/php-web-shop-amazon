@@ -1,3 +1,6 @@
+// category.js
+import { addArticleToCart } from './home.js';  // Assuming both files are in the same directory
+
 document.addEventListener("DOMContentLoaded", function () {
     const categoryContainer = document.querySelector(".space-y-2");
     const articleContainer = document.querySelector(".grid.grid-cols-3"); // Target the article section
@@ -18,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 data.data.forEach((category, index) => {
                     const categoryElement = document.createElement("label");
                     categoryElement.classList.add("flex", "items-center");
-                    categoryElement.innerHTML = `
+                    categoryElement.innerHTML = `  
                         <input type="radio" name="category" class="mr-2" value="${category.id}" ${selectedCategoryId == category.id || (!selectedCategoryId && index === 0) ? 'checked' : ''}> ${category.name}
                     `;
                     categoryContainer.appendChild(categoryElement);
@@ -54,12 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         const articleCard = document.createElement('div');
                         articleCard.className = 'bg-white p-4 rounded-lg shadow-md';
 
+                        // Store article ID in a data attribute (no effect on "Add to Cart" handler)
+                        articleCard.dataset.articleId = article.id; // Store article ID
+
                         // Create and append the article image
                         const imageElement = document.createElement('img');
                         imageElement.src = `../${article.image}`;  // Adjust the path to match the article image
                         imageElement.alt = article.name;
                         imageElement.className = 'mb-4 w-full h-auto'; // Ensure the image takes full width but has constrained height
-                        // Set max height, width, and maintain aspect ratio
                         imageElement.style.maxHeight = '200px'; // You can adjust the height as per need
                         imageElement.style.objectFit = 'cover'; // Ensures the image maintains aspect ratio and covers the space without distortion
                         articleCard.appendChild(imageElement);
@@ -86,10 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const addToCartButton = document.createElement('button');
                         addToCartButton.textContent = 'Add to Cart';
                         addToCartButton.className = 'bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300'; // Button styling
-                        addToCartButton.addEventListener('click', function() {
-                            // Handle the "Add to Cart" functionality here (e.g., adding to cart array) TO DO
-                            alert(`${article.name} has been added to the cart.`);
-                        });
+                        addToCartButton.addEventListener('click', addArticleToCart);  // No change here, the handler stays the same
                         articleCard.appendChild(addToCartButton);
 
                         // Append the card to the container
