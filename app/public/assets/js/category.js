@@ -50,14 +50,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (data.status === "success" && data.data.length > 0) {
                     data.data.forEach(article => {
-                        const articleElement = document.createElement("div");
-                        articleElement.classList.add("bg-white", "p-4", "rounded-lg", "shadow-md");
-                        articleElement.innerHTML = `
-                            <img src="../${article.image_url}" alt="Product Image" class="mb-2">
-                            <h3 class="font-medium">${article.name}</h3>
-                            <p class="text-gray-600">$${article.price}</p>
-                        `;
-                        articleContainer.appendChild(articleElement);
+                        // Create the article card container
+                        const articleCard = document.createElement('div');
+                        articleCard.className = 'bg-white p-4 rounded-lg shadow-md';
+
+                        // Create and append the article image
+                        const imageElement = document.createElement('img');
+                        imageElement.src = `../${article.image}`;  // Adjust the path to match the article image
+                        imageElement.alt = article.name;
+                        imageElement.className = 'mb-4 w-full h-auto'; // Ensure the image takes full width but has constrained height
+                        // Set max height, width, and maintain aspect ratio
+                        imageElement.style.maxHeight = '200px'; // You can adjust the height as per need
+                        imageElement.style.objectFit = 'cover'; // Ensures the image maintains aspect ratio and covers the space without distortion
+                        articleCard.appendChild(imageElement);
+
+                        // Create and append the title
+                        const titleElement = document.createElement('h3');
+                        titleElement.textContent = article.name;
+                        titleElement.className = 'font-medium text-lg mb-2'; // Styling for title
+                        articleCard.appendChild(titleElement);
+
+                        // Create and append the price
+                        const priceElement = document.createElement('p');
+                        priceElement.textContent = `$${article.price}`;
+                        priceElement.className = 'text-gray-600 mb-2'; // Styling for price
+                        articleCard.appendChild(priceElement);
+
+                        // Create and append the description
+                        const descriptionElement = document.createElement('p');
+                        descriptionElement.textContent = article.description || "No description available";  // Handle missing description
+                        descriptionElement.className = 'text-gray-500 mb-4'; // Styling for description
+                        articleCard.appendChild(descriptionElement);
+
+                        // Create and append the "Add to Cart" button
+                        const addToCartButton = document.createElement('button');
+                        addToCartButton.textContent = 'Add to Cart';
+                        addToCartButton.className = 'bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300'; // Button styling
+                        addToCartButton.addEventListener('click', function() {
+                            // Handle the "Add to Cart" functionality here (e.g., adding to cart array) TO DO
+                            alert(`${article.name} has been added to the cart.`);
+                        });
+                        articleCard.appendChild(addToCartButton);
+
+                        // Append the card to the container
+                        articleContainer.appendChild(articleCard);
                     });
                 } else {
                     articleContainer.innerHTML = "<p class='text-gray-500'>No articles available for this category.</p>";

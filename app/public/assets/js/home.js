@@ -150,7 +150,7 @@ function fetchArticleById(articleId) {
         });
 }
 
-shoppingCart = [];
+let shoppingCart = [];
 
 function addArticleToCart(event) {
     const articleId = event.target.closest("li").id;
