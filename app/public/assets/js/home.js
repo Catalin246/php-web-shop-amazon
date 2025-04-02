@@ -17,37 +17,38 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error fetching category data:', error));
 
-    function createCategoryElement(category, container) {
-        const link = document.createElement('a');
-        link.href = `/home/category`;
-        link.className = 'category-link'; 
-        link.style.textDecoration = 'none'; 
-    
-        const categoryBox = document.createElement('div');
-        categoryBox.className = 'box box-c';
-    
-        const title = document.createElement('h3');
-        title.textContent = category.description;
-    
-        const image = document.createElement('div');
-        const imgElement = document.createElement('img');
-        imgElement.src = category.image_url;
-        imgElement.alt = category.name;
-        image.appendChild(imgElement);
-    
-        categoryBox.appendChild(title);
-        categoryBox.appendChild(image);
-
-        const seeMoreButton = document.createElement('a');
-        seeMoreButton.href = `/home/category`;
-        seeMoreButton.textContent = 'See More';
-        seeMoreButton.className = 'see-more-btn'; 
-
-        categoryBox.appendChild(seeMoreButton)
-    
-        link.appendChild(categoryBox);
-        container.appendChild(link);
-    }        
+        function createCategoryElement(category, container) {
+            // Dynamically set the categoryId in the URL
+            const link = document.createElement('a');
+            link.href = `/home/category?categoryId=${category.id}`;  // Use category.id dynamically
+            link.className = 'category-link'; 
+            link.style.textDecoration = 'none'; 
+        
+            const categoryBox = document.createElement('div');
+            categoryBox.className = 'box box-c';
+        
+            const title = document.createElement('h3');
+            title.textContent = category.description;
+        
+            const image = document.createElement('div');
+            const imgElement = document.createElement('img');
+            imgElement.src = category.image_url;
+            imgElement.alt = category.name;
+            image.appendChild(imgElement);
+        
+            categoryBox.appendChild(title);
+            categoryBox.appendChild(image);
+        
+            const seeMoreButton = document.createElement('a');
+            seeMoreButton.href = `/home/category?categoryId=${category.id}`;  // Dynamically set the categoryId here too
+            seeMoreButton.textContent = 'See More';
+            seeMoreButton.className = 'see-more-btn'; 
+        
+            categoryBox.appendChild(seeMoreButton)
+        
+            link.appendChild(categoryBox);
+            container.appendChild(link);
+        }          
 });
 
 function fetchAndDisplayArticles(categoryId, elementId) {

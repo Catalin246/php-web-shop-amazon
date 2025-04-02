@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const categoryContainer = document.querySelector(".space-y-2");
     const articleContainer = document.querySelector(".grid.grid-cols-3"); // Target the article section
 
+    // Get category ID from URL if available
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedCategoryId = urlParams.get("categoryId");
+
     // Fetch and populate categories
     fetch("http://localhost/api/category")
         .then(response => response.json())
@@ -15,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const categoryElement = document.createElement("label");
                     categoryElement.classList.add("flex", "items-center");
                     categoryElement.innerHTML = `
-                        <input type="radio" name="category" class="mr-2" value="${category.id}" ${index === 0 ? 'checked' : ''}> ${category.name}
+                        <input type="radio" name="category" class="mr-2" value="${category.id}" ${selectedCategoryId == category.id || (!selectedCategoryId && index === 0) ? 'checked' : ''}> ${category.name}
                     `;
                     categoryContainer.appendChild(categoryElement);
                     
@@ -27,14 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Add event listener to all category radio buttons
                 document.querySelectorAll("input[name='category']").forEach(input => {
                     input.addEventListener("change", function () {
-                        fetchArticles(this.value);
+                        window.location.href = `/home/category?categoryId=${this.value}`;
                     });
                 });
 
-                // Fetch articles for the first category by default
-                if (firstCategoryId) {
-                    fetchArticles(firstCategoryId);
-                }
+                // Fetch articles for the selected category or first by default
+                fetchArticles(selectedCategoryId || firstCategoryId);
             }
         })
         .catch(error => console.error("Error fetching categories:", error));

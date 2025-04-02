@@ -27,7 +27,7 @@ include __DIR__ . '/../components/header.php';
         <section class="w-3/4 p-4">
             <h2 class="text-xl font-semibold mb-4">Products</h2>
             <div class="grid grid-cols-3 gap-4">
-                <div class="bg-white p-4 rounded-lg shadow-md">
+                <!-- <div class="bg-white p-4 rounded-lg shadow-md">
                     <img src="../assets/images/b1.jpg" alt="Product Image" class="mb-2">
                     <h3 class="font-medium">Product 1</h3>
                     <p class="text-gray-600">$99.99</p>
@@ -71,7 +71,7 @@ include __DIR__ . '/../components/header.php';
                     <img src="../assets/images/b9.jpg" alt="Product Image" class="mb-2">
                     <h3 class="font-medium">Product 3</h3>
                     <p class="text-gray-600">$299.99</p>
-                </div>
+                </div> -->
             </div>
         </section>
     </div>
