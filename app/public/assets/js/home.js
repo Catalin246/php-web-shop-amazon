@@ -1,3 +1,5 @@
+import "./category.js";
+
 document.addEventListener('DOMContentLoaded', function () {
     fetch('api/category')
         .then(response => response.json())

@@ -11,39 +11,16 @@ include __DIR__ . '/../components/header.php';
             <!-- Categories -->
             <div class="mb-4">
                 <h3 class="font-medium mb-2">Category</h3>
-                <div class="space-y-2">
-                    <label class="flex items-center">
-                        <input type="radio" name="category" class="mr-2"> Electronics
-                    </label>
-                    <label class="flex items-center">
-                        <input type="radio" name="category" class="mr-2"> Clothing
-                    </label>
-                    <label class="flex items-center">
-                        <input type="radio" name="category" class="mr-2"> Home & Kitchen
-                    </label>
-                    <label class="flex items-center">
-                        <input type="radio" name="category" class="mr-2"> Electronics
-                    </label>
-                    <label class="flex items-center">
-                        <input type="radio" name="category" class="mr-2"> Clothing
-                    </label>
-                    <label class="flex items-center">
-                        <input type="radio" name="category" class="mr-2"> Home & Kitchen
-                    </label>
-                    <label class="flex items-center">
-                        <input type="radio" name="category" class="mr-2"> Electronics
-                    </label>
-                    <label class="flex items-center">
-                        <input type="radio" name="category" class="mr-2"> Clothing
-                    </label>
+                <div class="space-y-2" id="category-container">
+                    
                 </div>
             </div>
             
             <!-- Price Range -->
-            <div>
+            <!-- <div>
                 <h3 class="font-medium mb-2">Price Range</h3>
                 <input type="range" min="10" max="1000" class="w-full">
-            </div>
+            </div> -->
         </aside>
         
         <!-- Articles Section -->
