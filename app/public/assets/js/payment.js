@@ -74,11 +74,15 @@ function handlePlaceOrder() {
         quantity: item.quantity
     }));
 
+    // const user = document.body.dataset.user;
+
+    // console.log(user);
+
     // Prepare the payload for the API
     const orderData = {
         delivered: false,
         paid: true,
-        user_id: 69, // Assuming a user_id for the example
+        user_id: 69, // To Do: Take the user_id from the session
         name: fullName,
         phone: phoneNumber,
         delivery_address: deliveryAddress,

@@ -60,13 +60,7 @@ Or run:
 
 1. Forgot password functionality;
 2. Implement pagination when displaying articles or categories;
-3. Implement the CRUD operation for rest of the objects;
+3. Implement the CRUD operation for rest of the objects in admin view;
 4. Use JWT tokens to acces the API;
-
-To Do: 
-
-- solve the errors when you are logged in as admin
-- place an order and proceed to payment
-- check if the user is loogen before place an order
 
 - export the datbase

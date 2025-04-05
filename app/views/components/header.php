@@ -28,7 +28,7 @@
     }
 ?>
 
-<body>
+<body data-user='<?= htmlspecialchars(json_encode($_SESSION['user']), ENT_QUOTES, 'UTF-8') ?>'>
     <div class="sidebar">
         <div class="hdn-head">
             <?php
