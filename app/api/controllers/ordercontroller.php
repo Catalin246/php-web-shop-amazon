@@ -12,7 +12,7 @@ class OrderController
         'user_id' => FILTER_VALIDATE_INT,
         'name' => FILTER_SANITIZE_FULL_SPECIAL_CHARS ,            
         'phone' => FILTER_SANITIZE_FULL_SPECIAL_CHARS ,          
-        'delivery_address' => FILTER_SANITIZE_FULL_SPECIAL_CHARS  
+        'delivery_address' => FILTER_SANITIZE_FULL_SPECIAL_CHARS 
     ];
 
     function __construct()
@@ -61,16 +61,40 @@ class OrderController
     {
         $jsonInput = file_get_contents('php://input');
         $data = json_decode($jsonInput, true);
-
+    
         if ($data !== null) {
+            // Sanitize the main order data (excluding items)
             $sanitizedData = filter_var_array($data, $this->filters, false);
-
+    
+            // Check if the 'items' key exists and is an array
+            if (isset($data['items']) && is_array($data['items'])) {
+                // Loop through the items and sanitize them
+                foreach ($data['items'] as &$item) {
+                    // Sanitize and validate item fields individually
+                    $item['article_id'] = filter_var($item['article_id'], FILTER_VALIDATE_INT);
+                    $item['quantity'] = filter_var($item['quantity'], FILTER_VALIDATE_INT);
+    
+                    // Handle invalid item fields
+                    if ($item['article_id'] === false) {
+                        $item['article_id'] = null; // Or handle error
+                    }
+                    if ($item['quantity'] === false) {
+                        $item['quantity'] = null; // Or handle error
+                    }
+                }
+                // Assign sanitized items back to the main data array
+                $sanitizedData['items'] = $data['items'];
+            } else {
+                // If no valid items, assign an empty array
+                $sanitizedData['items'] = [];
+            }
+    
+            // Proceed with the order creation if sanitization was successful
             if ($sanitizedData !== false) {
                 $order = new Order($sanitizedData);
-
                 $this->orderService->create($order);
-
-                echo json_encode(['status' => 'success', 'message' => 'Order created successfully']);
+    
+                echo json_encode(['status' => 'success', 'message' => 'Order created successfully', 'data' => $sanitizedData]);
             } else {
                 http_response_code(400);
                 echo json_encode(['status' => 'error', 'message' => 'Invalid input data']);
@@ -80,7 +104,7 @@ class OrderController
             echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data']);
         }
     }
-
+    
     public function update()
     {
         $jsonInput = file_get_contents('php://input');
