@@ -589,7 +589,6 @@ i {
     transform: scale(1.05); 
 }
 
-
 .l-btn,
 .r-btn {
     background-color: rgb(255, 255, 255, 1);
@@ -1230,6 +1229,11 @@ table {
     width: 200px;
     height: 150px;
     object-fit: cover; 
+}
+
+.card-body a:hover {
+    color: red;
+    text-decoration: underline;
 }
 
 /*!**************************************************************************************!*\

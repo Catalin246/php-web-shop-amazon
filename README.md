@@ -82,6 +82,6 @@ To Do:
 
 - solve the errors when you are logged in as admin
 - payment page: display dynamic content
-- category page: display the items dynamicaly
+- category page: add article to the cart
 
 - export the datbase

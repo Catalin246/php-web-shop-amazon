@@ -1,7 +1,7 @@
 import "./category.js";
 
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('api/category')
+    fetch('http://localhost/api/category')
         .then(response => response.json())
         .then(data => {
             const categoryContainer = document.getElementById('categoryContainer');
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Fetching and displaying articles for each category
 function fetchAndDisplayArticles(categoryId, elementId) {
-    fetch(`api/article?categoryId=${categoryId}`)
+    fetch(`http://localhost/api/article?categoryId=${categoryId}`)
         .then(response => response.json())
         .then(articles => {
             articles.data.forEach(article => {
@@ -273,7 +273,8 @@ export function addArticleToCart(event) {
             const existingCartItem = shoppingCart.find(item => item.id === article.id);
 
             if (existingCartItem) {
-                updateQuantityFromCart(existingCartItem, 1); // Update quantity if item already in cart
+                const cartItemEl = document.getElementById(`item-${article.id}`);
+                updateQuantity(cartItemEl, article, 1);
             } else {
                 shoppingCart.push(article);
                 updateCartDisplay();
@@ -286,7 +287,7 @@ export function addArticleToCart(event) {
 }
 
 function fetchArticleById(articleId) {
-    return fetch(`api/article?id=${articleId}`)
+    return fetch(`http://localhost/api/article?id=${articleId}`)
         .then(response => response.json())
         .then(data => data.data)
         .catch(error => {
@@ -295,7 +296,7 @@ function fetchArticleById(articleId) {
         });
 }
 
-function toggleOffcanvas() {
+export function toggleOffcanvas() {
     const offcanvas = document.getElementById('offcanvasRight');
     offcanvas.classList.toggle('open');
 
@@ -304,7 +305,7 @@ function toggleOffcanvas() {
     offcanvas.style.display = 'block';
 }
 
-function closeOffcanvas() {
+export function closeOffcanvas() {
     const offcanvas = document.getElementById('offcanvasRight');
     offcanvas.classList.remove('open');
 
