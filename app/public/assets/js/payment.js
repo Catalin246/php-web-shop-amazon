@@ -101,7 +101,7 @@ function handlePlaceOrder() {
         localStorage.removeItem('shoppingCart');
 
         // Redirect to the home page after successful order submission
-        window.location.href = 'http://localhost'; // Adjust to the correct home URL
+        window.location.href = 'http://localhost/home/thankyou'; 
     })
     .catch(error => {
         console.error('Error placing order:', error);

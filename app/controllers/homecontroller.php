@@ -11,4 +11,9 @@ class HomeController
     {
         require __DIR__ . '/../views/home/category.php';
     }
+
+    public function thankyou()
+    {
+        require __DIR__ . '/../views/home/thankyou.php';
+    }
 }
