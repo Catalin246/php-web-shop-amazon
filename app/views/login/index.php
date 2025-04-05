@@ -15,7 +15,25 @@
     <title>Sign In</title>
 </head>
 
-<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="path-to-your-css-file.css">
+</head>
+
+<body class="body-custom">
+
+    <!-- Modal (popup) -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>You must be logged in to proceed with the payment</h2>
+        </div>
+    </div>
+
     <div class="custom-container signin">
         <div class="row d-flex-custom justify-content-center">
             <a href="/"><img class="small-logo" src="../assets/images/amazon-logo.png" alt=""></a>
@@ -51,11 +69,38 @@
                         </p>
                         <p class="form-group">By signing in you are agreeing to our <a class="link" href="#">Terms of
                                 Use</a> and our
-                            <a class="link" href="#">Privacy Policy</a>.
-                        </p>
+                            <a class="link" href="#">Privacy Policy</a>.<p>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Check if session flag is set for login required
+        <?php if (isset($_SESSION['login_required']) && $_SESSION['login_required'] === true): ?>
+            // Show the modal if login required
+            var modal = document.getElementById("loginModal");
+            var closeBtn = document.querySelector(".close-btn");
+            modal.style.display = "block";
+
+            // Close the modal when the close button is clicked
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+                // Unset session flag after modal is closed
+                <?php unset($_SESSION['login_required']); ?>
+            }
+        <?php endif; ?>
+
+        // Close modal if clicked outside of it
+        window.onclick = function(event) {
+            var modal = document.getElementById("loginModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+                // Unset session flag after modal is closed
+                <?php unset($_SESSION['login_required']); ?>
+            }
+        }
+    </script>
 </body>
+</html>
