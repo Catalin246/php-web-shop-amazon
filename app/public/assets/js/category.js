@@ -1,4 +1,3 @@
-// category.js
 import { addArticleToCart, toggleOffcanvas, closeOffcanvas } from './home.js';
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -12,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             if (data.status === "success") {
+                // 1. Existing code for populating the main category container
                 categoryContainer.innerHTML = "";
 
                 let firstCategoryId = null;
@@ -35,10 +35,36 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 });
 
+                // 2. Check if #hdn-categorie and its ul exist before trying to manipulate it
+                const categoryList = document.querySelector("#hdn-categorie ul");
+                if (categoryList) {
+                    // Populate categories in #hdn-categorie
+                    populateHdnCategories(data.data, categoryList);
+                } else {
+                    console.error("Error: #hdn-categorie or its <ul> element not found.");
+                }
+
+                // 3. Call to fetch articles for the selected category
                 fetchArticles(selectedCategoryId || firstCategoryId);
             }
         })
         .catch(error => console.error("Error fetching categories:", error));
+
+    // Function to populate categories into the #hdn-categorie section
+    function populateHdnCategories(categories, categoryList) {
+        // categoryList.innerHTML = ""; // Clear any previous categories
+
+        categories.forEach(category => {
+            const categoryListItem = document.createElement("li");
+
+            const categoryLink = document.createElement("a");
+            categoryLink.href = `/home/category?categoryId=${category.id}`;
+            categoryLink.textContent = category.name;
+
+            categoryListItem.appendChild(categoryLink);
+            categoryList.appendChild(categoryListItem);
+        });
+    }
 
     function fetchArticles(categoryId) {
         fetch(`/api/article?categoryId=${categoryId}`)

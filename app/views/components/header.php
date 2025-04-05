@@ -39,51 +39,10 @@
             }
             ?>
         </div>
-        <div class="hdn-content">
-            <h3>Digital Content & Devices</h3>
+        <div id="hdn-categorie" class="hdn-content">
+            <h3>Shop By Category</h3>
             <ul>
-                <div>
-                    <li>Amazon Music</li><i class="fa-solid fa-angle-right"></i>
-                </div>
-                <div>
-                    <li>Kindle E-Readers & Books</li><i class="fa-solid fa-angle-right"></i>
-                </div>
-                <div>
-                    <li>Appstore for Android</li><i class="fa-solid fa-angle-right"></i>
-                </div>
-            </ul>
-            <div class="line"></div>
-        </div>
-        <div class="hdn-content">
-            <h3>Shop By Department</h3>
-            <ul>
-                <div>
-                    <li>Electronics</li><i class="fa-solid fa-angle-right"></i>
-                </div>
-                <div>
-                    <li>Computers</li><i class="fa-solid fa-angle-right"></i>
-                </div>
-                <div>
-                    <li>Smart Homes</li><i class="fa-solid fa-angle-right"></i>
-                </div>
-                <div>
-                    <li>Arts & Crafts</li><i class="fa-solid fa-angle-right"></i>
-                </div>
-            </ul>
-            <div class="line"></div>
-        </div>
-        <div class="hdn-content">
-            <h3>Programs & Features</h3>
-            <ul>
-                <div>
-                    <li>Gift Cards & Mobile Recharges</li><i class="fa-solid fa-angle-right"></i>
-                </div>
-                <div>
-                    <li>Flight Tickets</li><i class="fa-solid fa-angle-right"></i>
-                </div>
-                <div>
-                    <li>Clearance Store</li><i class="fa-solid fa-angle-right"></i>
-                </div>
+                <!-- Categories will be dynamically inserted here -->
             </ul>
             <div class="line"></div>
         </div>
@@ -136,10 +95,10 @@
                         <i class="fas fa-caret-down"></i>
                     </div>
                 </div>
-                <div class="sign">
+                <!-- <div class="sign">
                     <span>Returns</span>
                     <span>& Orders</span>
-                </div>
+                </div> -->
                 <div class="flex-custom cart">
                     <button class="button" id="toggle-btn" type="button" onclick="toggleOffcanvas()"><i
                             class="fas fa-shopping-cart"></i>
@@ -170,7 +129,7 @@
                     <span>All</span>
                 </div>
             </div>
-            <div class="second-2">
+            <!-- <div class="second-2">
                 <ul>
                     <li>Today's Deal</li>
                     <li>Customer Service</li>
@@ -178,6 +137,6 @@
                     <li>Gift Cards</li>
                     <li>Sell</li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </header>
