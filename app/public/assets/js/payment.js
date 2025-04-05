@@ -3,6 +3,8 @@ function loadShoppingCart() {
     const savedCart = localStorage.getItem('shoppingCart');
     const cartData = savedCart ? JSON.parse(savedCart) : [];
 
+    console.log(cartData);
+
     displayOrderSummary(cartData);
 }
 
@@ -42,3 +44,70 @@ function displayOrderSummary(cartData) {
 
 // Call the function on page load
 window.onload = loadShoppingCart;
+
+// Function to handle order submission
+function handlePlaceOrder() {
+    // Gather the user's input from the form
+    const fullName = document.querySelector('input[placeholder="John Doe"]').value.trim();
+    const phoneNumber = document.querySelector('input[placeholder="0612345678"]').value.trim();
+    const deliveryAddress = document.querySelector('input[placeholder="Main Street 42, Haarlem, 2032WE"]').value.trim();
+
+    // Check if any of the fields are empty
+    if (!fullName || !phoneNumber || !deliveryAddress) {
+        alert('Please fill in all the fields.');
+        return; // Stop the order process if any of the fields are empty
+    }
+
+    // Get cart data from LocalStorage
+    const savedCart = localStorage.getItem('shoppingCart');
+    const cartData = savedCart ? JSON.parse(savedCart) : [];
+
+    // If the cart is empty, show an alert and stop the order process
+    if (cartData.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+
+    // Prepare the items for the order (article_id and quantity)
+    const items = cartData.map(item => ({
+        article_id: item.id,
+        quantity: item.quantity
+    }));
+
+    // Prepare the payload for the API
+    const orderData = {
+        delivered: false,
+        paid: true,
+        user_id: 69, // Assuming a user_id for the example
+        name: fullName,
+        phone: phoneNumber,
+        delivery_address: deliveryAddress,
+        items: items
+    };
+
+    // Send the order to the API endpoint
+    fetch('http://localhost/api/order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Order placed successfully:', data);
+
+        // Clear the shopping cart from localStorage
+        localStorage.removeItem('shoppingCart');
+
+        // Redirect to the home page after successful order submission
+        window.location.href = 'http://localhost'; // Adjust to the correct home URL
+    })
+    .catch(error => {
+        console.error('Error placing order:', error);
+        alert('There was an error placing your order. Please try again.');
+    });
+}
+
+// Add event listener to the "Place Order" button
+document.getElementById('place-order-btn').addEventListener('click', handlePlaceOrder);

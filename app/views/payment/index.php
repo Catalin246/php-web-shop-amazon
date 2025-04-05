@@ -13,10 +13,10 @@ include __DIR__ . '/../components/header.php';
                 <input type="text" class="w-full p-2 border rounded mb-4" placeholder="John Doe">
 
                 <label class="block mb-2 font-medium">Address</label>
-                <input type="text" class="w-full p-2 border rounded mb-4" placeholder="123 Street, City, Country">
+                <input type="text" class="w-full p-2 border rounded mb-4" placeholder="Main Street 42, Haarlem, 2032WE">
 
                 <label class="block mb-2 font-medium">Phone Number</label>
-                <input type="text" class="w-full p-2 border rounded mb-4" placeholder="+1 234 567 890">
+                <input type="text" class="w-full p-2 border rounded mb-4" placeholder="0612345678">
 
                 <h3 class="text-xl font-semibold mb-4">Payment Method</h3>
                 <div class="mb-4">
