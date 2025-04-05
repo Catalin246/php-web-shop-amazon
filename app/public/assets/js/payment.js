@@ -3,9 +3,6 @@ function loadShoppingCart() {
     const savedCart = localStorage.getItem('shoppingCart');
     const cartData = savedCart ? JSON.parse(savedCart) : [];
 
-    // Display the cart data in the console
-    console.log("Shopping Cart:", cartData);
-
     displayOrderSummary(cartData);
 }
 
@@ -22,11 +19,11 @@ function displayOrderSummary(cartData) {
 
     // Loop through the cart data to create the order summary
     cartData.forEach(item => {
-        const totalItemPrice = (item.price * 1).toFixed(2); // Assuming quantity is 1 for simplicity
+        const totalItemPrice = (item.price * item.quantity).toFixed(2); // Use the quantity of each item
         subtotal += parseFloat(totalItemPrice);
         orderDetailsHTML += `
             <p class="flex justify-between mb-2">
-                <span>${item.name}</span>
+                <span>${item.name} x ${item.quantity}</span>
                 <span>$${totalItemPrice}</span>
             </p>
         `;

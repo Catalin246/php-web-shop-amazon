@@ -56,32 +56,17 @@ Or run:
     - username: catalin@example.com
     - password: password
 
-## Features provided
-
-1. Login, Register functionalities are provided;
-2. User roles (customer, admin); As a customer you don't have access to the admin page;
-3. The application has an API for data manipulation;
-4. A shopping cart functionality where users can add and delete products to their cart;
-5. The categories and articles are loaded dynamically use the api endpoints in the customer app;
-6. The admin panel provide full CRUD operation only for user (In the order panel only the Read operation is provided; In the article panel Read and Delete operations provided);
-7. Save hashed passwords on the DB;
-8. The app is Bootstrap as well as CSS for styling;
-9. The app stores the user into the session after log-in;
-10. Sanitize the data in the data layer; Prevent SQL injection;
-
 ## Additional features should be implemented to enhance the overall quality of the project.
 
 1. Forgot password functionality;
-2. Place an order and proceed to payment;
-3. Implement pagination when displaying articles or categories;
-4. Implement the CRUD operation for rest of the objects;
-5. Check if the user is loogen before place an order;
-6. Use JWT tokens to acces the API;
+2. Implement pagination when displaying articles or categories;
+3. Implement the CRUD operation for rest of the objects;
+4. Use JWT tokens to acces the API;
 
 To Do: 
 
 - solve the errors when you are logged in as admin
-- payment page: display dynamic content
-- category page: add article to the cart
+- place an order and proceed to payment
+- check if the user is loogen before place an order
 
 - export the datbase
