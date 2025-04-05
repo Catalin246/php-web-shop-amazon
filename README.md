@@ -62,5 +62,3 @@ Or run:
 2. Implement pagination when displaying articles or categories;
 3. Implement the CRUD operation for rest of the objects in admin view;
 4. Use JWT tokens to acces the API;
-
-- export the datbase
