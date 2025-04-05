@@ -9,6 +9,9 @@ class Order
     private bool $paid;
     private int $userId;
     private array $items = [];
+    private string $name;
+    private string $phone;
+    private string $deliveryAddress;
 
     /**
      * Order constructor.
@@ -21,6 +24,9 @@ class Order
         $this->setDelivered($orderData['delivered'] ?? false);
         $this->setPaid($orderData['paid'] ?? false);
         $this->setUserId($orderData['user_id'] ?? 0);
+        $this->setName($orderData['name'] ?? '');
+        $this->setPhone($orderData['phone'] ?? '');
+        $this->setDeliveryAddress($orderData['delivery_address'] ?? '');
 
         if (isset($orderData['items']) && is_array($orderData['items'])) {
             foreach ($orderData['items'] as $itemData) {
@@ -41,6 +47,9 @@ class Order
             'delivered' => $this->delivered,
             'paid' => $this->paid,
             'user_id' => $this->userId,
+            'name' => $this->name,
+            'phone' => $this->phone,
+            'delivery_address' => $this->deliveryAddress,
             'items' => [],
         ];
 
@@ -167,6 +176,78 @@ class Order
     public function addItem(Item $item): self
     {
         $this->items[] = $item;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @param string $name
+     *
+     * @return self
+     */
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of phone
+     *
+     * @return string
+     */
+    public function getPhone(): string
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set the value of phone
+     *
+     * @param string $phone
+     *
+     * @return self
+     */
+    public function setPhone(string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of delivery address
+     *
+     * @return string
+     */
+    public function getDeliveryAddress(): string
+    {
+        return $this->deliveryAddress;
+    }
+
+    /**
+     * Set the value of delivery address
+     *
+     * @param string $deliveryAddress
+     *
+     * @return self
+     */
+    public function setDeliveryAddress(string $deliveryAddress): self
+    {
+        $this->deliveryAddress = $deliveryAddress;
 
         return $this;
     }

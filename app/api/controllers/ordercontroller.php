@@ -10,6 +10,9 @@ class OrderController
         'delivered' => FILTER_VALIDATE_BOOLEAN,
         'paid' => FILTER_VALIDATE_BOOLEAN,
         'user_id' => FILTER_VALIDATE_INT,
+        'name' => FILTER_SANITIZE_FULL_SPECIAL_CHARS ,            
+        'phone' => FILTER_SANITIZE_FULL_SPECIAL_CHARS ,          
+        'delivery_address' => FILTER_SANITIZE_FULL_SPECIAL_CHARS  
     ];
 
     function __construct()

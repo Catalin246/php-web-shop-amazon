@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Jan 21, 2024 at 01:42 PM
--- Server version: 11.1.2-MariaDB-1:11.1.2+maria~ubu2204
--- PHP Version: 8.2.12
+-- Generation Time: Apr 05, 2025 at 12:16 PM
+-- Server version: 11.3.2-MariaDB-1:11.3.2+maria~ubu2204
+-- PHP Version: 8.2.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -56,7 +56,7 @@ INSERT INTO `article` (`id`, `category_id`, `name`, `description`, `image`, `pri
 (50, 1, 'Mastering the Art of Negotiation', 'Enhance your negotiation skills with practical insights and techniques.', 'assets/images/b10.jpg', 29.99, 0, 100, 1),
 (52, 2, 'UltraSlim Laptop Pro', 'Thin and lightweight laptop for professionals on the go.', 'assets/images/pc2.jpg', 1299.99, 20, 100, 1),
 (53, 2, 'Multimedia Master 3000', 'Perfect for media enthusiasts with stunning display and audio.', 'assets/images/pc3.jpg', 1599.99, 25, 100, 1),
-(54, 2, 'ProfessionalBook X1', 'Designed for business professionals with top-notch security features.', 'assets/images/pc4.jpg', 1699.99, 22, 100, 1),
+(54, 2, 'ProfessionalBook', 'Designed for business professionals with top-notch security features.', 'assets/images/pc4.jpg', 1699.99, 22, 100, 1),
 (55, 2, 'Student Edition 2023', 'Affordable and reliable laptop for students.', 'assets/images/pc5.jpg', 899.99, 15, 100, 1),
 (56, 2, 'Powerhouse Pro 15', 'High-performance laptop for demanding tasks and applications.', 'assets/images/pc6.jpg', 1999.99, 28, 100, 1),
 (57, 2, 'Traveler\'s Companion', 'Compact and lightweight laptop for on-the-go professionals.', 'assets/images/pc7.jpg', 1299.99, 20, 100, 1),
@@ -104,23 +104,6 @@ CREATE TABLE `item` (
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `item`
---
-
-INSERT INTO `item` (`id`, `order_id`, `article_id`, `quantity`) VALUES
-(1, 1, 52, 3),
-(2, 2, 53, 2),
-(3, 3, 54, 1),
-(4, 4, 55, 4),
-(5, 5, 56, 5),
-(6, 6, 456, 2),
-(7, 6, 789, 1),
-(8, 100000, 456, 2),
-(9, 100000, 789, 1),
-(10, 100006, 456, 2),
-(11, 100006, 789, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -131,19 +114,11 @@ CREATE TABLE `order` (
   `id` int(11) NOT NULL,
   `delivered` tinyint(1) NOT NULL,
   `paid` tinyint(1) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `delivery_address` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `order`
---
-
-INSERT INTO `order` (`id`, `delivered`, `paid`, `user_id`) VALUES
-(100001, 1, 1, 69),
-(100002, 1, 1, 69),
-(100003, 1, 1, 69),
-(100004, 1, 1, 69),
-(100005, 1, 1, 69);
 
 -- --------------------------------------------------------
 
@@ -166,8 +141,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `email`, `name`, `phone`, `user_role_id`, `password`) VALUES
 (68, 'admin@example.com', 'Admin', '', 2, '$2y$10$GmlVphbh50eFd4qRvaQ/QO5spU07LX445yn7U.Ue4Nx/TjRHXCxvm'),
-(69, 'catalin@example.com', 'Catalin', '0629765123', 1, '$2y$10$5H9L8N.T03wE7WNuNzoYT.XDyDCUDinc0AyTEeMPjgnsU0JcwY1sm'),
-(70, 'john@example.com', 'John', '061238767', 1, '$2y$10$TM2HmR8LzxfoSQ4QCSg/1.pqG65/eJZPDI8AQhRz2kLTBJl5RR7zy');
+(69, 'catalin@example.com', 'Catalin', '0629765123', 1, '$2y$10$5H9L8N.T03wE7WNuNzoYT.XDyDCUDinc0AyTEeMPjgnsU0JcwY1sm');
 
 --
 -- Indexes for dumped tables
@@ -230,7 +204,7 @@ ALTER TABLE `item`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100007;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100015;
 
 --
 -- AUTO_INCREMENT for table `user`
