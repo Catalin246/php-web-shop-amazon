@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
         link.appendChild(categoryBox);
         container.appendChild(link);
     }
-    
+
     loadShoppingCartFromStorage();
     fetchAndDisplayArticles(1, "book-products");
     fetchAndDisplayArticles(2, "pc-products");
@@ -175,7 +175,7 @@ function createCartItemElement(article) {
     minusButton.addEventListener("click", () => updateQuantity(cartItem, article, -1));
 
     const quantityValue = document.createElement("span");
-    quantityValue.textContent = "1"; // Placeholder, we'll update this later
+    quantityValue.textContent = article.quantity; // Display the correct quantity
 
     const plusButton = document.createElement("button");
     plusButton.innerHTML = `<i class="fas fa-plus"></i>`;
@@ -202,12 +202,15 @@ function updateQuantity(cartItem, article, change) {
     const quantityElement = cartItem.querySelector(".item-quantity span");
     let currentQuantity = parseInt(quantityElement.textContent);
     currentQuantity += change;
+
     if (currentQuantity < 1) {
-        removeCartItem(cartItem, article);
+        removeCartItem(cartItem, article); // If quantity becomes less than 1, remove the item
     } else {
+        // Update quantity and re-render the total price for the item
         quantityElement.textContent = currentQuantity;
+        article.quantity = currentQuantity; // Update the quantity in the cart
         updateItemTotal(cartItem, article, currentQuantity);
-        saveCartToStorage();
+        saveCartToStorage(); // Save updated cart to LocalStorage
     }
 }
 
@@ -232,7 +235,7 @@ function updateItemTotal(cartItem, article, quantity) {
         priceParagraph.textContent = `Price: ${totalPrice} €`;
     }
 
-    updateCartTotal();
+    updateCartTotal(); // Update the cart total after price change
 }
 
 // Function to update the total price of the cart
@@ -273,13 +276,17 @@ export function addArticleToCart(event) {
             const existingCartItem = shoppingCart.find(item => item.id === article.id);
 
             if (existingCartItem) {
-                const cartItemEl = document.getElementById(`item-${article.id}`);
-                updateQuantity(cartItemEl, article, 1);
+                // If item already exists in the cart, increase the quantity
+                existingCartItem.quantity += 1;
+                updateCartDisplay(); // Update the display to reflect the quantity change
             } else {
+                // If item doesn't exist, add it with quantity 1
+                article.quantity = 1; // Add a quantity property to the article
                 shoppingCart.push(article);
-                updateCartDisplay();
-                saveCartToStorage(); // Save updated cart
+                updateCartDisplay(); // Update the display
             }
+
+            saveCartToStorage(); // Save the updated cart
         })
         .catch(error => {
             console.error("Error adding article to cart:", error);

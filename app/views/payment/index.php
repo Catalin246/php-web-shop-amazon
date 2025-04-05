@@ -8,7 +8,7 @@ include __DIR__ . '/../components/header.php';
         <!-- Left Section: Billing & Payment Details -->
         <div class="w-2/3 bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4">Billing Details</h3>
-            <form>
+            <form id="billing-form">
                 <label class="block mb-2 font-medium">Full Name</label>
                 <input type="text" class="w-full p-2 border rounded mb-4" placeholder="John Doe">
 
@@ -30,13 +30,13 @@ include __DIR__ . '/../components/header.php';
                         <input type="radio" name="payment" class="mr-2"> <span>Amazon Pay</span>
                     </label>
                 </div>
-                
+
                 <label class="block mb-2 font-medium">Card Number</label>
                 <input type="text" class="w-full p-2 border rounded mb-4" placeholder="**** **** **** ****">
-                
+
                 <label class="block mb-2 font-medium">Expiration Date</label>
                 <input type="text" class="w-full p-2 border rounded mb-4" placeholder="MM/YY">
-                
+
                 <label class="block mb-2 font-medium">CVV</label>
                 <input type="text" class="w-full p-2 border rounded mb-4" placeholder="***">
             </form>
@@ -45,16 +45,17 @@ include __DIR__ . '/../components/header.php';
         <!-- Right Section: Order Summary -->
         <div class="w-1/3 bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4">Order Summary</h3>
-            <p class="flex justify-between mb-2"><span>Subtotal:</span> <span>$499.99</span></p>
-            <p class="flex justify-between mb-2"><span>Shipping:</span> <span>$10.00</span></p>
-            <p class="flex justify-between font-semibold text-lg"><span>Total:</span> <span>$509.99</span></p>
-            
-            <button class="w-full bg-yellow-500 text-white font-bold py-2 rounded-lg mt-4 hover:bg-yellow-600">Place Order</button>
+            <div id="order-summary">
+                <!-- Dynamic content will be injected here by JavaScript -->
+            </div>
+
+            <button id="place-order-btn" class="w-full bg-yellow-500 text-white font-bold py-2 rounded-lg mt-4 hover:bg-yellow-600">Place Order</button>
         </div>
     </div>
 </div>
 
 <script src="../dist/home.bundle.js"></script>
+<script src="../dist/payment.bundle.js"></script>
 
 <?php
 include __DIR__ . '/../components/footer.php';

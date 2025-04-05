@@ -8,6 +8,7 @@ module.exports = {
         home: './app/public/assets/js/home.js',
         article: './app/public/assets/js/article.js',
         category: './app/public/assets/js/category.js',
+        payment: './app/public/assets/js/payment.js',
         styles: [
             './app/public/assets/css/style.css',
             './app/public/assets/css/hdn-sign.css',
